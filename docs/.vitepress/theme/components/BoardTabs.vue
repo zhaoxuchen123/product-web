@@ -35,7 +35,7 @@
       </div>
 
       <div v-if="current.snippet" class="bt-snippet">
-        <div class="bt-snippet-label">配置代码片段</div>
+        <div class="bt-snippet-label">网卡设备树配置</div>
         <pre class="bt-pre"><code>{{ current.snippet }}</code></pre>
       </div>
     </div>

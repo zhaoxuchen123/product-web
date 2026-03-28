@@ -4,69 +4,29 @@
 import ChangelogEntry from '../../../.vitepress/theme/components/ChangelogEntry.vue'
 </script>
 
-DW GMAC 驱动各平台包独立版本，以下按发布时间倒序列出各包的更新记录。
+DW 网卡更新记录如下：
 
-## dw-gmac-rk3568
+<ChangelogEntry version="3.0.19" date="2026-03-23" :type="['minor']">
 
-<ChangelogEntry version="1.2.0" date="2025-12-10" type="minor">
-
-- 新增 YT8531 PHY 支持（RGMII_RXID 模式）
-- 修复 100M 半双工模式下偶发自协商超时
-
-</ChangelogEntry>
-
-<ChangelogEntry version="1.1.0" date="2025-09-05" type="minor">
-
-- 新增 PTP 硬件时间戳支持
-- 优化 RGMII TX/RX delay 默认配置
+- **新增** timestamp 驱动固件改用仅支持 PTP 功能的定制内核编译
+- **新增** `[6a1a5699]` RISC-V（SM90D325）和 MIPS32（M300、X2000）平台 DW 网卡驱动支持
+- **更新** `[c1692381]` netcompat 子系统更新至 1.0.5，新增 Mars PHY 驱动
 
 </ChangelogEntry>
 
-<ChangelogEntry version="1.0.0" date="2025-06-01" type="major">
+<ChangelogEntry version="3.0.18" date="2025-12-27" :type="['minor', 'patch']">
 
-- 首次发布
-
-</ChangelogEntry>
-
-## dw-gmac-rk3588
-
-<ChangelogEntry version="1.1.0" date="2025-11-20" type="minor">
-
-- 新增 RSS 多队列接收分流支持（4 收队列）
-- 修复双网口同时满速时 GMAC1 RX FIFO 偶发溢出，限速至 950 Mbps
+- **新增** `[5d737a35]` RK3562 平台 DW 网卡驱动支持
+- **修复** `[aedb2324]` 灵犀 HS100 执行 `ifup` / `ifdown` 后网卡无法恢复使用的问题
+- **新增** `[9ee52845]` netcompat 子系统新增 YT8522 和 MAE PHY 驱动
 
 </ChangelogEntry>
 
-<ChangelogEntry version="1.0.0" date="2025-07-15" type="major">
+<ChangelogEntry version="3.0.17" date="2025-11-27" :type="['minor', 'patch']">
 
-- 首次发布，支持 GMAC0 / GMAC1 双网口
-
-</ChangelogEntry>
-
-## dw-gmac-d9
-
-<ChangelogEntry version="1.0.1" date="2025-10-30" type="patch">
-
-- 修复 TJA1103 冷启动偶发自协商失败，增加 50ms 上电延迟
-
-</ChangelogEntry>
-
-<ChangelogEntry version="1.0.0" date="2025-08-01" type="major">
-
-- 首次发布，支持 ASIL-B 功能安全监控和 AVB Credit-Based Shaper
-
-</ChangelogEntry>
-
-## dw-gmac-ls2k1000
-
-<ChangelogEntry version="1.0.1" date="2025-09-18" type="patch">
-
-- 修复大端模式 DMA 描述符字节序解析错误
-
-</ChangelogEntry>
-
-<ChangelogEntry version="1.0.0" date="2025-07-01" type="major">
-
-- 首次发布，支持 MIPS64 大端字节序
+- **新增** 软件包新增基于「时间戳定制版 SylixOS 内核」编译的 timestamp 版本驱动
+- **新增** 驱动支持通过环境变量 `dwmac_debug_level` 设置日志输出级别
+- **更新** net_compat 库中 RTL8211F PHY 驱动新增 LED 灯控制支持
+- **修复** `[7ba1c554]` 芯驰 D9 不支持 clk 接口，需在 BSP 网卡设备树中添加 `semidrive-ptp-ref` 节点以配置 PTP 参考频率
 
 </ChangelogEntry>

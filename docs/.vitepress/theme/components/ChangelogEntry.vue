@@ -3,7 +3,11 @@
     <div class="cl__header">
       <div class="cl__left">
         <span class="cl__version">v{{ version }}</span>
-        <span v-if="type" :class="['cl__type', `cl__type--${type}`]">{{ typeLabel[type] }}</span>
+        <span
+          v-for="t in types"
+          :key="t"
+          :class="['cl__type', `cl__type--${t}`]"
+        >{{ typeLabel[t] }}</span>
       </div>
       <time class="cl__date">{{ date }}</time>
     </div>
@@ -14,12 +18,13 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 type ReleaseType = 'major' | 'minor' | 'patch' | 'beta'
 
-defineProps<{
+const props = defineProps<{
   version: string
   date: string
-  type?: ReleaseType
+  type?: ReleaseType | ReleaseType[]
 }>()
 
 const typeLabel: Record<ReleaseType, string> = {
@@ -28,6 +33,10 @@ const typeLabel: Record<ReleaseType, string> = {
   patch: '修复补丁',
   beta: 'Beta',
 }
+
+const types = computed(() =>
+  props.type ? (Array.isArray(props.type) ? props.type : [props.type]) : []
+)
 </script>
 
 <style scoped>
