@@ -16,8 +16,7 @@ export default defineConfig({
         text: '产品',
         items: [
           { text: '网卡驱动库', link: '/products/nic-driver/' },
-          { text: '网络协议栈', link: '/products/network-stack/' },
-          { text: '网络中间件工具', link: '/products/middleware/' },
+          { text: '网络工具', link: '/products/tools/' },
         ],
       },
       { text: '更新日志', link: '/changelog' },
@@ -52,12 +51,35 @@ export default defineConfig({
           ],
         },
         {
+          text: '沐创系列',
+          collapsed: false,
+          items: [
+            { text: 'rnp（N10 万兆）', link: '/products/nic-driver/mucse/rnp' },
+            { text: 'rnp500（N500 万兆）', link: '/products/nic-driver/mucse/rnp500' },
+          ],
+        },
+        {
+          text: '网讯系列',
+          collapsed: false,
+          items: [
+            { text: 'ngbe（WX1860 千兆）', link: '/products/nic-driver/wangxun/ngbe' },
+            { text: 'txgbe（WX1820 万兆）', link: '/products/nic-driver/wangxun/txgbe' },
+          ],
+        },
+        {
           text: 'Intel 系列',
           collapsed: false,
           items: [
             { text: 'igb（i210 / i350）', link: '/products/nic-driver/intel/igb' },
             { text: 'igc（I225 / I226）', link: '/products/nic-driver/intel/igc' },
             { text: 'i40e（X710 / XL710）', link: '/products/nic-driver/intel/i40e' },
+          ],
+        },
+        {
+          text: '裕太微系列',
+          collapsed: false,
+          items: [
+            { text: 'YT6801（2.5GbE）', link: '/products/nic-driver/yt6801' },
           ],
         },
         {
@@ -68,23 +90,30 @@ export default defineConfig({
           ],
         },
       ],
-      '/products/network-stack/': [
+      '/products/tools/': [
         {
-          text: '网络协议栈',
+          text: '网络工具',
           items: [
-            { text: '概述', link: '/products/network-stack/' },
-            { text: '快速开始', link: '/products/network-stack/getting-started' },
-            { text: '更新日志', link: '/products/network-stack/changelog' },
+            { text: '工具列表', link: '/products/tools/' },
           ],
         },
-      ],
-      '/products/middleware/': [
         {
-          text: '网络中间件工具',
+          text: '工具列表',
+          collapsed: false,
           items: [
-            { text: '概述', link: '/products/middleware/' },
-            { text: '快速开始', link: '/products/middleware/getting-started' },
-            { text: '更新日志', link: '/products/middleware/changelog' },
+            {
+              text: 'ifethtool（网卡配置）',
+              collapsed: true,
+              items: [
+                { text: '概述', link: '/products/tools/ifethtool/' },
+                { text: '命令参考', link: '/products/tools/ifethtool/command-reference' },
+                { text: '应用指南', link: '/products/tools/ifethtool/application-guide' },
+                { text: '驱动接入', link: '/products/tools/ifethtool/driver-integration' },
+              ],
+            },
+            { text: 'vndbind（虚拟网卡绑定）', link: '/products/tools/vndbind' },
+            { text: 'xgro（软件 GRO）', link: '/products/tools/xgro' },
+            { text: 'pppd（PPP 服务器）', link: '/products/tools/pppd' },
           ],
         },
       ],
@@ -93,7 +122,7 @@ export default defineConfig({
     socialLinks: [],
 
     footer: {
-      message: '嵌入式操作系统网络部门',
+      message: '翼辉信息 · 网络技术部',
       copyright: `Copyright © ${new Date().getFullYear()}`,
     },
 

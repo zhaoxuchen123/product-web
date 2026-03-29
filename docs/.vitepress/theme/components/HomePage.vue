@@ -13,7 +13,7 @@
           <div class="eyebrow">南京翼辉信息 · 网络技术部</div>
           <h1 class="hero-title">
             <span class="grad">全链路网络软件</span><br />
-            <span class="hero-title-sub">解决方案</span>
+            <span class="hero-title-sub">解决方案与产品</span>
           </h1>
           <p class="hero-desc">
             覆盖驱动、网络协议栈、网络安全、网络软硬件解决方案与产品，
@@ -24,13 +24,13 @@
             <a href="/changelog" class="btn-ghost">更新日志</a>
           </div>
           <div class="hero-stats">
-            <div class="stat"><span class="stat-num">3</span><span class="stat-label">核心产品</span></div>
+            <div class="stat"><span class="stat-num">2</span><span class="stat-label">核心产品</span></div>
             <div class="stat-div" />
             <div class="stat"><span class="stat-num">20+</span><span class="stat-label">支持芯片</span></div>
             <div class="stat-div" />
-            <div class="stat"><span class="stat-num">IPv4/6</span><span class="stat-label">双栈支持</span></div>
+            <div class="stat"><span class="stat-num">4+</span><span class="stat-label">网络工具</span></div>
             <div class="stat-div" />
-            <div class="stat"><span class="stat-num">&lt;64KB</span><span class="stat-label">最小内存</span></div>
+            <div class="stat"><span class="stat-num">Armory</span><span class="stat-label">统一分发</span></div>
           </div>
         </div>
         <div class="hero-right">
@@ -85,7 +85,8 @@
               <div class="update-info">
                 <div class="update-title">
                   {{ u.product }}
-                  <code class="update-ver">v{{ u.version }}</code>
+                  <code class="update-ver">{{ u.version }}</code>
+                  <span v-if="u.pkg" class="update-pkg">{{ u.pkg }}</span>
                   <span :class="['update-type', u.typeClass]">{{ u.type }}</span>
                 </div>
                 <div class="update-desc">{{ u.desc }}</div>
@@ -109,16 +110,17 @@
         <div class="about">
           <div class="about-text">
             <div class="section-tag">关于我们</div>
-            <h2 class="section-title" style="text-align:left">专注嵌入式网络<br/>软件研发</h2>
+            <h2 class="section-title" style="text-align:left">翼辉信息 · 网络部</h2>
             <p class="about-desc">
-              我们是嵌入式操作系统的网络软件团队，负责从底层网卡驱动到上层应用协议的全链路研发，
-              产品运行于工业控制、物联网、车载等多种嵌入式平台。
+              我们是翼辉信息的网络技术部门，深耕 SylixOS 平台的网络基础软件研发。
+              当前主要面向集团内部其他部门与业务团队提供高质量的网络驱动与工具支撑，
+              同时也在积极推进若干面向市场的独立产品设计与规划。
             </p>
             <div class="about-pills">
-              <span class="pill"><Factory :size="13" /> 工业控制</span>
-              <span class="pill"><Wifi :size="13" /> 物联网</span>
-              <span class="pill"><Car :size="13" /> 车载系统</span>
-              <span class="pill"><Rocket :size="13" /> 航空航天</span>
+              <span class="pill"><Cpu :size="13" /> 网卡驱动</span>
+              <span class="pill"><Terminal :size="13" /> 网络工具</span>
+              <span class="pill"><Factory :size="13" /> 基础软件</span>
+              <span class="pill"><Rocket :size="13" /> 独立产品</span>
             </div>
           </div>
           <div class="about-grid">
@@ -137,7 +139,7 @@
 <script setup lang="ts">
 import {
   ArrowRight, Cpu, Network, Wrench, Zap, Feather, ShieldCheck, Puzzle,
-  Factory, Wifi, Car, Rocket
+  Factory, Wifi, Car, Rocket, Terminal
 } from 'lucide-vue-next'
 import NetworkDiagram from './NetworkDiagram.vue'
 
@@ -148,31 +150,24 @@ const products = [
     version: null, latestPkg: 'dw-gmac-rk3568 1.2.0', link: '/products/nic-driver/'
   },
   {
-    icon: Network, title: '网络协议栈', tag: '稳定版', tagClass: 'tag-stable',
-    desc: '轻量级 TCP/IP 双栈，最小内存 < 64KB，POSIX Socket 兼容，内置 DHCP、DHCPv6、DNS、mDNS 客户端。',
-    version: '3.1.0', link: '/products/network-stack/'
-  },
-  {
-    icon: Wrench, title: '网络中间件工具', tag: '活跃开发', tagClass: 'tag-active',
-    desc: 'MQTT 5.0、HTTP/HTTPS、CoAP、Modbus TCP、TFTP、NTP 全套中间件，支持 TLS/mbedTLS 加密，事件驱动架构。',
-    version: '1.8.2', link: '/products/middleware/'
+    icon: Terminal, title: '网络工具', tag: '活跃开发', tagClass: 'tag-active',
+    desc: 'ifethtool、vndbind、xgro、pppd 等 SylixOS 网络配置与调试工具，兼容 Linux 主流工具使用习惯。',
+    version: '1.0.0', link: '/products/tools/'
   },
 ]
 
 const updates = [
-  { icon: Wrench, product: '网络中间件工具', version: '1.8.2', type: '修复', typeClass: 'type-patch',
-    desc: '修复 MQTT 重连死锁，优化 HTTP 分块传输稳定性', date: '2026-03-10', link: '/products/middleware/changelog' },
-  { icon: Network, product: '网络协议栈', version: '3.1.0', type: '功能', typeClass: 'type-minor',
-    desc: '新增 DHCPv6，TCP CUBIC 拥塞控制，IPv6 路由查找提速 30%', date: '2026-01-20', link: '/products/network-stack/changelog' },
-  { icon: Cpu, product: '网卡驱动库', version: 'dw-gmac-rk3568 1.2.0', type: '修复', typeClass: 'type-patch',
-    desc: '修复 RTL8111 高负载 DMA 溢出，优化 i210 中断合并参数', date: '2025-12-15', link: '/products/nic-driver/changelog' },
+  { icon: Cpu,      product: '网卡驱动库', pkg: 'ngbe · WX1860', version: 'HEAD',    type: '功能', typeClass: 'type-minor',
+    desc: '新增单播 / 组播地址过滤，新增 PHY 寄存器读写 Shell 命令', date: '2026-03-06', link: '/products/nic-driver/wangxun/ngbe' },
+  { icon: Terminal, product: '网络工具',   pkg: 'xgro',          version: '2.0.0',   type: '重构', typeClass: 'type-major',
+    desc: '重构为 2.0.0，新增 Cache 对齐优化，改进哈希算法', date: '2026-01-19', link: '/products/tools/xgro' },
 ]
 
 const features = [
-  { icon: Zap,         title: '高性能',   desc: '关键路径零拷贝优化，万兆线速' },
-  { icon: Feather,     title: '轻量级',   desc: '最小运行内存 < 64KB' },
-  { icon: ShieldCheck, title: '高可靠',   desc: 'POSIX 兼容，广泛验证' },
-  { icon: Puzzle,      title: '易集成',   desc: '统一接口，移植成本极低' },
+  { icon: Cpu,         title: '驱动支持',   desc: '覆盖主流 PCIe 与 SoC 网卡，持续扩充' },
+  { icon: Zap,         title: '面向集团',   desc: '优先为集团内部业务团队提供稳定支撑' },
+  { icon: ShieldCheck, title: '质量优先',   desc: '严格测试验证，保障驱动与工具可靠性' },
+  { icon: Puzzle,      title: '独立产品',   desc: '积极规划面向市场的独立产品与解决方案' },
 ]
 </script>
 
@@ -213,7 +208,7 @@ const features = [
 .hero-inner {
   position: relative; z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 3rem;
   align-items: center;
 }
@@ -357,6 +352,7 @@ const features = [
 .update-info { min-width: 0; }
 .update-title { font-size: 0.92rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.2rem; }
 .update-ver { font-family: var(--vp-font-family-mono); font-size: 0.73rem; background: var(--vp-c-default-soft); padding: 1px 6px; border-radius: 5px; color: var(--vp-c-text-3); font-weight: 400; }
+.update-pkg { font-family: var(--vp-font-family-mono); font-size: 0.68rem; font-weight: 600; padding: 1px 8px; border-radius: 20px; background: rgba(139,92,246,0.1); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.2); }
 .update-type { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px; letter-spacing: .3px; text-transform: uppercase; }
 .type-patch { background: rgba(59,130,246,.12); color: #3b82f6; }
 .type-minor { background: rgba(34,197,94,.12); color: #22c55e; }

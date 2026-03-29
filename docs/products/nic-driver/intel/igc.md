@@ -80,6 +80,7 @@ netcard_intel_attach();`,
     <h1 class="plat-title">igc 系列</h1>
     <p class="plat-mfr">Intel · PCIe 2.5GbE · I225 / I226</p>
     <span class="plat-badge stable">稳定版</span>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">2.5 GbE</span><span class="ps-label">网口速率</span></div>
@@ -89,15 +90,15 @@ netcard_intel_attach();`,
   </div>
 </div>
 
-## 安装
+## 安装与加载
 
-igc 系列与 igb 共用同一个 Armory 包：
+igc 系列支持两种使用方式，根据 BSP 类型选择：
 
-```bash
-armory get @nic_drv/netcard-intel
-```
+### 方式一：静态库
 
-在 BSP Makefile 中链接（与 igb 相同）：
+将驱动编译为静态库 `libintel.a`，随 BSP 一起编译链接。
+
+在 BSP Makefile 中添加链接依赖：
 
 ```makefile
 LOCAL_DEPEND_LIB := \
@@ -109,7 +110,7 @@ LOCAL_DEPEND_LIB := \
     ...
 ```
 
-## 加载驱动
+在 BSP 启动函数中调用一次入口函数：
 
 ```c
 VOID bspBoardNetifAttch(VOID)
@@ -119,7 +120,19 @@ VOID bspBoardNetifAttch(VOID)
 }
 ```
 
-驱动自动识别 I225/I226 全系列设备 ID，按 PCI 枚举顺序创建网口。
+### 方式二：内核模块（.ko）
+
+将驱动编译为独立内核模块 `igc.ko`，运行时动态加载：
+
+```bash
+# 加载驱动模块
+insmod igc.ko
+
+# 卸载
+rmmod igc
+```
+
+加载后驱动自动识别 I225/I226 全系列设备 ID，按 PCI 枚举顺序创建网口。
 
 ## 支持型号
 
@@ -161,10 +174,13 @@ B3 及以后版本已修复此问题，新设计建议选用 I226 系列。
 }
 .plat-breadcrumb { font-size: 0.78rem; color: var(--vp-c-text-3); margin-bottom: 0.5rem; }
 .plat-breadcrumb a { color: var(--vp-c-brand-1); text-decoration: none; }
+.armory-link { display: inline-block; margin-left: 0.5rem; font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(59,130,246,.12); color: var(--vp-c-brand-1); text-decoration: none !important; }
+.armory-link:hover { opacity: 0.8; }
 .plat-title { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 0.25rem; }
 .plat-mfr { font-size: 0.85rem; color: var(--vp-c-text-3); margin: 0 0 0.75rem; }
 .plat-badge { font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
 .plat-badge.stable { background: rgba(34,197,94,.12); color: #22c55e; }
+.plat-version { font-size: 0.72rem; color: var(--vp-c-text-3); margin-top: 0.4rem; display: block; }
 .plat-hero-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.6rem; }
 .plat-stat {
   display: flex; flex-direction: column; align-items: center;

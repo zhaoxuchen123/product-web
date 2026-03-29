@@ -3,17 +3,19 @@ layout: page
 ---
 
 <script setup>
-import { Cpu, Network, Wrench } from 'lucide-vue-next'
+import { Cpu, Terminal } from 'lucide-vue-next'
 
 const entries = [
-  { year: 2026, product: '网络中间件工具', icon: Wrench, version: '1.8.2', type: 'patch', typeLabel: '修复',  date: '2026-03-10', link: '/products/middleware/changelog',     items: ['修复 MQTT 客户端重连死锁问题', 'HTTP Server 分块传输稳定性优化'] },
-  { year: 2026, product: '网络协议栈',     icon: Network, version: '3.1.0', type: 'minor', typeLabel: '功能',  date: '2026-01-20', link: '/products/network-stack/changelog',  items: ['新增 DHCPv6 客户端支持', 'TCP CUBIC 拥塞控制算法', 'IPv6 路由查找性能提升 30%'] },
-  { year: 2026, product: '网络中间件工具', icon: Wrench, version: '1.8.0', type: 'minor', typeLabel: '功能',  date: '2026-01-15', link: '/products/middleware/changelog',     items: ['新增 CoAP 客户端（Beta）', 'MQTT 5.0 协议支持'] },
-  { year: 2025, product: '网卡驱动库',     icon: Cpu,     version: '2.4.1', type: 'patch', typeLabel: '修复',  date: '2025-12-15', link: '/products/nic-driver/changelog',       items: ['修复 RTL8111 高负载 DMA 溢出问题', '优化 i210 中断合并参数'] },
-  { year: 2025, product: '网络协议栈',     icon: Network, version: '3.0.1', type: 'patch', typeLabel: '修复',  date: '2025-11-30', link: '/products/network-stack/changelog',  items: ['修复 DNS 解析器 CNAME 死循环', '修复 TCP keepalive 计数器异常'] },
-  { year: 2025, product: '网络中间件工具', icon: Wrench, version: '1.7.0', type: 'minor', typeLabel: '功能',  date: '2025-10-22', link: '/products/middleware/changelog',     items: ['HTTP/MQTT TLS 加密支持', 'Modbus TCP 写多寄存器（FC16）'] },
-  { year: 2025, product: '网卡驱动库',     icon: Cpu,     version: '2.4.0', type: 'minor', typeLabel: '功能',  date: '2025-10-08', link: '/products/nic-driver/changelog',       items: ['新增 Cadence GEM 驱动', '多队列 API 支持'] },
-  { year: 2025, product: '网络协议栈',     icon: Network, version: '3.0.0', type: 'major', typeLabel: '重大',  date: '2025-09-15', link: '/products/network-stack/changelog',  items: ['IPv6 全特性正式支持（SLAAC、NDP）', 'Socket API POSIX 完整兼容', '内存碎片率降低 40%'] },
+  { year: 2026, product: '网卡驱动库',  icon: Cpu,     pkg: 'ngbe · WX1860',      version: 'HEAD',      type: 'minor', typeLabel: '功能', date: '2026-03-06', link: '/products/nic-driver/wangxun/ngbe',   items: ['新增单播 / 组播地址过滤功能', '新增 Shell 命令支持读写 PHY 寄存器', '修复 pbuf 链接收时无法释放的问题', '修复不支持软件 VLAN 的问题'] },
+  { year: 2026, product: '网络工具',    icon: Terminal, pkg: 'xgro',               version: '2.0.0',     type: 'major', typeLabel: '重构', date: '2026-01-19', link: '/products/tools/xgro',                items: ['重构为 2.0.0，新增 Cache 对齐优化', '改进 Jenkins 类哈希算法，减少流表碰撞', '无锁快慢路径优化，降低自旋锁竞争'] },
+  { year: 2025, product: '网络工具',    icon: Terminal, pkg: 'pppd',               version: '1.1.0',     type: 'minor', typeLabel: '发布', date: '2025-12-11', link: '/products/tools/pppd',                items: ['初始版本发布，支持 PPPoS 串口连接', '支持 PAP/CHAP 认证、自动重连'] },
+  { year: 2025, product: '网卡驱动库',  icon: Cpu,     pkg: 'ngbe · WX1860',      version: '1.2.6.5',   type: 'patch', typeLabel: '修复', date: '2025-11-21', link: '/products/nic-driver/wangxun/ngbe',   items: ['修复 pbuf 链在 ifup/ifdown 时无法释放的问题'] },
+  { year: 2025, product: '网卡驱动库',  icon: Cpu,     pkg: 'txgbe · WX1820',     version: '1.3.6.9',   type: 'patch', typeLabel: '修复', date: '2025-11-06', link: '/products/nic-driver/wangxun/txgbe',  items: ['修复 SR-IOV 场景 VF 混杂模式下跨 VLAN 收包问题', '修复 ethtool -K rx-all on 错误开启混杂模式', '修复 QinQ 双层 VLAN 报文导致 TX 挂起'] },
+  { year: 2025, product: '网络工具',    icon: Terminal, pkg: 'ifethtool',          version: '1.0.0',     type: 'minor', typeLabel: '发布', date: '2025-10-27', link: '/products/tools/ifethtool/',          items: ['初始版本发布，支持 17 个 ethtool 兼容命令', '支持 DW 网卡（v3.0.20+）'] },
+  { year: 2025, product: '网络工具',    icon: Terminal, pkg: 'vndbind',            version: '1.0.0',     type: 'minor', typeLabel: '发布', date: '2025-10-27', link: '/products/tools/vndbind',             items: ['初始版本发布，支持虚拟网卡绑定与管理'] },
+  { year: 2025, product: '网卡驱动库',  icon: Cpu,     pkg: 'yt6801 · 裕太微',    version: '1.0.2',     type: 'minor', typeLabel: '功能', date: '2025-10-01', link: '/products/nic-driver/yt6801',         items: ['支持裕太微 YT6801 2.5GbE PCIe 网卡'] },
+  { year: 2025, product: '网卡驱动库',  icon: Cpu,     pkg: 'igb · Intel',        version: '5.18.7',    type: 'patch', typeLabel: '修复', date: '2025-09-10', link: '/products/nic-driver/intel/igb',      items: ['优化 i210 中断合并参数默认值', '修复 i350 多口场景偶发枚举顺序错乱'] },
+  { year: 2025, product: '网卡驱动库',  icon: Cpu,     pkg: 'DW GMAC',            version: '3.0.19',    type: 'minor', typeLabel: '功能', date: '2025-06-20', link: '/products/nic-driver/dw/',            items: ['RK3568 新增 TSO 硬件卸载', 'RK3588 优化多核 RSS 分流', '芯驰 D9 完善 ASIL-B 初始化流程', 'LS2K1000 修复低温下链路不稳问题'] },
 ]
 
 const years = [...new Set(entries.map(e => e.year))].sort((a,b) => b-a)
@@ -38,7 +40,8 @@ const years = [...new Set(entries.map(e => e.year))].sort((a,b) => b-a)
                 <component :is="e.icon" :size="15" stroke-width="1.8" />
               </div>
               <span class="cl-entry-name">{{ e.product }}</span>
-              <code class="cl-entry-ver">v{{ e.version }}</code>
+              <code class="cl-entry-ver">{{ e.version }}</code>
+              <span v-if="e.pkg" class="cl-entry-pkg">{{ e.pkg }}</span>
               <span :class="['cl-entry-type', 'type-'+e.type]">{{ e.typeLabel }}</span>
             </div>
             <span class="cl-entry-date">{{ e.date }}</span>
@@ -122,6 +125,12 @@ const years = [...new Set(entries.map(e => e.year))].sort((a,b) => b-a)
   font-family: var(--vp-font-family-mono); font-size: 0.72rem;
   background: var(--vp-c-default-soft); padding: 1px 6px;
   border-radius: 5px; color: var(--vp-c-text-3);
+}
+.cl-entry-pkg {
+  font-family: var(--vp-font-family-mono); font-size: 0.68rem; font-weight: 600;
+  padding: 1px 8px; border-radius: 20px;
+  background: rgba(139,92,246,0.1); color: #8b5cf6;
+  border: 1px solid rgba(139,92,246,0.2);
 }
 .cl-entry-type { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px; text-transform: uppercase; letter-spacing: .3px; }
 .type-major { background: rgba(239,68,68,.12); color: #ef4444; }

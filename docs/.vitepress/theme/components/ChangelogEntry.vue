@@ -3,6 +3,7 @@
     <div class="cl__header">
       <div class="cl__left">
         <span class="cl__version">v{{ version }}</span>
+        <span v-if="pkg" class="cl__pkg">{{ pkg }}</span>
         <span
           v-for="t in types"
           :key="t"
@@ -25,6 +26,7 @@ const props = defineProps<{
   version: string
   date: string
   type?: ReleaseType | ReleaseType[]
+  pkg?: string
 }>()
 
 const typeLabel: Record<ReleaseType, string> = {
@@ -90,6 +92,16 @@ const types = computed(() =>
   letter-spacing: -0.02em;
 }
 
+.cl__pkg {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: rgba(139,92,246,0.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(139,92,246,0.2);
+}
 .cl__type {
   font-size: 11px;
   font-weight: 600;

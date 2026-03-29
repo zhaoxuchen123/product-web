@@ -17,8 +17,8 @@ import PlatformCard from '../../.vitepress/theme/components/PlatformCard.vue'
   startLink="./getting-started"
   changelogLink="./changelog"
   :stats="[
-    { value: '10+', label: '支持芯片/系列' },
-    { value: '10G', label: '最高支持速率' },
+    { value: '20+', label: '支持芯片/系列' },
+    { value: '40G', label: '最高支持速率' },
     { value: 'Armory', label: '包管理发布' },
   ]"
   :features="[
@@ -99,16 +99,6 @@ DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP
 
 </div>
 
-## 其他芯片支持
-
-| 芯片型号 | 接口 | 速率 | 状态 |
-|---|---|---|---|
-| Intel i210 | PCIe | 1G | ✅ 稳定 |
-| Intel i217 | PCIe | 1G | ✅ 稳定 |
-| Realtek RTL8111 | PCIe | 1G | ✅ 稳定 |
-| SMSC LAN9118 | AHB | 100M | ✅ 稳定 |
-| Cadence GEM | AXI | 1G | ✅ 稳定 |
-
 ## Intel PCIe 系列
 
 独立 PCIe 网卡，适用于 x86 及具备 PCIe 总线的嵌入式平台：
@@ -162,12 +152,117 @@ DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP
 
 </div>
 
+## 裕太微系列（MOTORCOMM）
+
+<div class="platform-grid">
+
+<PlatformCard
+  href="./yt6801"
+  chip="YT6801"
+  manufacturer="裕太微电子（MOTORCOMM）"
+  pkg="libdrv-yt6801"
+  status="stable"
+  statusLabel="稳定"
+  :specs="[
+    { value: '2.5G', label: '速率' },
+    { value: 'PCIe', label: '总线' },
+    { value: '国产', label: '自主可控' },
+  ]"
+  :tags="['2.5GbE', '国产芯片']"
+/>
+
+</div>
+
+## 网讯网卡（Wangxun）
+
+网讯科技自研网卡，Vendor ID `0x8088`，覆盖千兆与万兆场景：
+
+<div class="platform-grid">
+
+<PlatformCard
+  href="./wangxun/ngbe"
+  chip="WX1860"
+  manufacturer="网讯科技"
+  pkg="libngbe"
+  status="stable"
+  statusLabel="稳定"
+  :specs="[
+    { value: '1 GbE', label: '速率' },
+    { value: '最多×4', label: '端口数' },
+    { value: 'PCIe', label: '总线' },
+  ]"
+  :tags="['千兆', '国产芯片', '多口']"
+/>
+
+<PlatformCard
+  href="./wangxun/txgbe"
+  chip="WX1820"
+  manufacturer="网讯科技"
+  pkg="libtxgbe"
+  status="stable"
+  statusLabel="稳定"
+  :specs="[
+    { value: '10 GbE', label: '速率' },
+    { value: 'SFP+', label: '接口' },
+    { value: 'SR-IOV', label: '虚拟化' },
+  ]"
+  :tags="['万兆', '国产芯片', 'SR-IOV']"
+/>
+
+</div>
+
+## 沐创网卡（MUCSE）
+
+沐创自研 PCIe 万兆网卡，Vendor ID `0x8848`：
+
+<div class="platform-grid">
+
+<PlatformCard
+  href="./mucse/rnp"
+  chip="N10"
+  manufacturer="沐创科技"
+  pkg="libdrv_rnp"
+  status="stable"
+  statusLabel="稳定"
+  :specs="[
+    { value: '10 GbE', label: '速率' },
+    { value: 'SFP+', label: '接口' },
+    { value: 'SR-IOV', label: '虚拟化' },
+  ]"
+  :tags="['万兆', '国产芯片', 'SR-IOV']"
+/>
+
+<PlatformCard
+  href="./mucse/rnp500"
+  chip="N500"
+  manufacturer="沐创科技"
+  pkg="libdrv_rnp_n500"
+  status="stable"
+  statusLabel="稳定"
+  :specs="[
+    { value: '10 GbE', label: '速率' },
+    { value: 'SFP+', label: '接口' },
+    { value: 'RSS', label: '多队列' },
+  ]"
+  :tags="['万兆', '国产芯片']"
+/>
+
+</div>
+
 ## 最新更新
 
-<ChangelogEntry version="2.4.1" date="2025-12-15" type="patch">
+<ChangelogEntry version="HEAD" pkg="ngbe · WX1860" date="2026-03-06" type="minor">
 
-- 修复 RTL8111 在高负载下偶发 DMA 描述符溢出问题
-- 优化 i210 中断合并参数默认值
+- 新增单播 / 组播地址过滤功能
+- 新增 Shell 命令支持读写 PHY 寄存器
+- 修复 pbuf 链接收时无法释放的问题
+
+</ChangelogEntry>
+
+<ChangelogEntry version="1.3.6.9" pkg="txgbe · WX1820" date="2025-11-06" type="patch">
+
+- 修复 SR-IOV 场景 VF 混杂模式下跨 VLAN 收包问题
+- 修复 QinQ 双层 VLAN 报文导致 TX 单元挂起
 
 </ChangelogEntry>
 
