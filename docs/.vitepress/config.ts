@@ -4,6 +4,7 @@ export default defineConfig({
   title: '南京翼辉网络部产品中心',
   description: '南京翼辉信息网络技术部产品展示',
   lang: 'zh-CN',
+  base: '/product-web/',
   lastUpdated: true,
 
   themeConfig: {
