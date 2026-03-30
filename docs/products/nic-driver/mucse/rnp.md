@@ -50,7 +50,7 @@ insmod libdrv_rnp.ko`,
     <div class="plat-breadcrumb"><a href="/products/nic-driver/">网卡驱动库</a> / 沐创系列 / rnp</div>
     <h1 class="plat-title">rnp</h1>
     <p class="plat-mfr">沐创（MUCSE）· PCIe 万兆 N10</p>
-    <span class="plat-badge stable">v0.2.5</span>
+    <VersionBadge product="nic-driver/rnp" />
     <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">

@@ -83,7 +83,7 @@ ngbe_init_module();`,
     <div class="plat-breadcrumb"><a href="/products/nic-driver/">网卡驱动库</a> / 网讯系列 / ngbe</div>
     <h1 class="plat-title">ngbe</h1>
     <p class="plat-mfr">网讯科技（Wangxun）· PCIe 千兆</p>
-    <span class="plat-badge stable">v1.2.6.5</span>
+    <VersionBadge product="nic-driver/ngbe" />
     <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">

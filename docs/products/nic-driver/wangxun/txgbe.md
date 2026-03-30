@@ -50,7 +50,7 @@ txgbe_init_module();`,
     <div class="plat-breadcrumb"><a href="/products/nic-driver/">网卡驱动库</a> / 网讯系列 / txgbe</div>
     <h1 class="plat-title">txgbe</h1>
     <p class="plat-mfr">网讯科技（Wangxun）· PCIe 万兆</p>
-    <span class="plat-badge stable">v1.3.6.9</span>
+    <VersionBadge product="nic-driver/txgbe" />
     <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">

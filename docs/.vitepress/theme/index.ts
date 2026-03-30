@@ -7,6 +7,7 @@ import ChangelogEntry from './components/ChangelogEntry.vue'
 import ProductPageHero from './components/ProductPageHero.vue'
 import PlatformCard from './components/PlatformCard.vue'
 import BoardTabs from './components/BoardTabs.vue'
+import VersionBadge from './components/VersionBadge.vue'
 
 export default {
   extends: DefaultTheme,
@@ -18,5 +19,6 @@ export default {
     app.component('ProductPageHero', ProductPageHero)
     app.component('PlatformCard', PlatformCard)
     app.component('BoardTabs', BoardTabs)
+    app.component('VersionBadge', VersionBadge)
   },
 }

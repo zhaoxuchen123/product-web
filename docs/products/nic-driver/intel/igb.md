@@ -69,7 +69,7 @@ netcard_intel_attach();`,
     <div class="plat-breadcrumb"><a href="/products/nic-driver/">网卡驱动库</a> / Intel / igb</div>
     <h1 class="plat-title">igb 系列</h1>
     <p class="plat-mfr">Intel · PCIe 千兆 · i210 / i211 / i350</p>
-    <span class="plat-badge stable">v5.18.7</span>
+    <VersionBadge product="nic-driver/igb" />
     <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">

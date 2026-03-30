@@ -1,0 +1,72 @@
+{
+  "nic-driver/dw": {
+    "version": "v3.0.19",
+    "status": "stable",
+    "updated": "2026-03-30"
+  },
+  "nic-driver/rnp": {
+    "version": "v0.2.5",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "nic-driver/rnp500": {
+    "version": "v0.2.5",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "nic-driver/ngbe": {
+    "version": "v1.2.6.5",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "nic-driver/txgbe": {
+    "version": "v1.3.6.9",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "nic-driver/igb": {
+    "version": "v5.18.7",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "nic-driver/igc": {
+    "version": "稳定版",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "nic-driver/i40e": {
+    "version": "v2.28.6",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "nic-driver/yt6801": {
+    "version": "v1.0.2",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "tools/ifethtool": {
+    "version": "v1.0.0",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "tools/vndbind": {
+    "version": "v1.0.0",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "tools/xgro": {
+    "version": "v2.0.0",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "tools/pppd": {
+    "version": "v1.1.0",
+    "status": "stable",
+    "updated": "2026-03-28"
+  },
+  "middleware": {
+    "version": "v1.8.2",
+    "status": "stable",
+    "updated": "2026-03-28"
+  }
+}

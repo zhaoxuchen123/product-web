@@ -7,7 +7,7 @@ import ChangelogEntry from '../../.vitepress/theme/components/ChangelogEntry.vue
     <div class="plat-breadcrumb"><a href="/products/tools/">网络工具</a> / pppd</div>
     <h1 class="plat-title">pppd</h1>
     <p class="plat-mfr">南京翼辉网络部 · SylixOS PPP 拨号服务器</p>
-    <span class="plat-badge stable">v1.1.0</span>
+    <VersionBadge product="tools/pppd" />
     <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">

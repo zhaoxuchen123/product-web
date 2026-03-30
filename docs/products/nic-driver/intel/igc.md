@@ -79,7 +79,7 @@ netcard_intel_attach();`,
     <div class="plat-breadcrumb"><a href="/products/nic-driver/">网卡驱动库</a> / Intel / igc</div>
     <h1 class="plat-title">igc 系列</h1>
     <p class="plat-mfr">Intel · PCIe 2.5GbE · I225 / I226</p>
-    <span class="plat-badge stable">稳定版</span>
+    <VersionBadge product="nic-driver/igc" />
     <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">

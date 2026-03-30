@@ -7,7 +7,7 @@ import ChangelogEntry from '../../.vitepress/theme/components/ChangelogEntry.vue
     <div class="plat-breadcrumb"><a href="/products/tools/">网络工具</a> / vndbind</div>
     <h1 class="plat-title">vndbind</h1>
     <p class="plat-mfr">南京翼辉网络部 · SylixOS 虚拟网卡绑定工具</p>
-    <span class="plat-badge stable">v1.0.0</span>
+    <VersionBadge product="tools/vndbind" />
     <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
