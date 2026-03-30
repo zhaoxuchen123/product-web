@@ -86,8 +86,8 @@ export default defineConfig({
         {
           text: '开发文档',
           items: [
-            { text: '二次开发指南', link: '/products/nic-driver/dev-guide' },
             { text: '问题反馈', link: '/products/nic-driver/feedback' },
+            { text: '问题追踪', link: '/products/nic-driver/issue-tracker' },
           ],
         },
       ],
