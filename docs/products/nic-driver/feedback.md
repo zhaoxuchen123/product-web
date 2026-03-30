@@ -5,7 +5,7 @@ import { MessageSquare, Bug, Lightbulb, BookOpen } from 'lucide-vue-next'
 </script>
 
 <div class="fb-intro">
-遇到驱动问题或有改进建议？请通过以下渠道联系我们，我们承诺在 <strong>2 个工作日</strong>内响应。
+遇到驱动问题或有改进建议？请通过以下渠道联系我们。
 </div>
 
 ## 反馈渠道
@@ -17,7 +17,7 @@ import { MessageSquare, Bug, Lightbulb, BookOpen } from 'lucide-vue-next'
   <div class="fb-ch-body">
     <div class="fb-ch-title">Bug 报告</div>
     <div class="fb-ch-desc">驱动崩溃、数据错误、初始化失败等问题</div>
-    <a class="fb-ch-link" href="mailto:nic-driver@acoinfo.com?subject=[BUG] 网卡驱动问题反馈">发送邮件 →</a>
+    <a class="fb-ch-link" href="mailto:zhaoxuchen@acoinfo.com?subject=[BUG] 网卡驱动问题反馈">发送邮件 →</a>
   </div>
 </div>
 
@@ -26,7 +26,7 @@ import { MessageSquare, Bug, Lightbulb, BookOpen } from 'lucide-vue-next'
   <div class="fb-ch-body">
     <div class="fb-ch-title">功能需求</div>
     <div class="fb-ch-desc">新平台适配申请、新特性需求</div>
-    <a class="fb-ch-link" href="mailto:nic-driver@acoinfo.com?subject=[FEAT] 需求申请">发送邮件 →</a>
+    <a class="fb-ch-link" href="mailto:zhaoxuchen@acoinfo.com?subject=[FEAT] 需求申请">发送邮件 →</a>
   </div>
 </div>
 
@@ -35,7 +35,7 @@ import { MessageSquare, Bug, Lightbulb, BookOpen } from 'lucide-vue-next'
   <div class="fb-ch-body">
     <div class="fb-ch-title">技术咨询</div>
     <div class="fb-ch-desc">集成问题、配置疑问、性能调优咨询</div>
-    <a class="fb-ch-link" href="mailto:nic-driver@acoinfo.com?subject=[QA] 技术咨询">发送邮件 →</a>
+    <a class="fb-ch-link" href="mailto:zhaoxuchen@acoinfo.com?subject=[QA] 技术咨询">发送邮件 →</a>
   </div>
 </div>
 
@@ -49,11 +49,14 @@ import { MessageSquare, Bug, Lightbulb, BookOpen } from 'lucide-vue-next'
 2. **复现步骤**：最小化的复现代码或操作序列
 3. **现象描述**：错误现象、错误码、日志输出
 4. **硬件配置**：PHY 型号、时钟配置、`nic_cfg_t` 内容
-5. **统计信息**（如可获取）：
+5. **系统日志**（如可获取）：
 
 ```c
-nic_stats_t stats;
-nic_ioctl(&g_nic, NIC_IOCTL_GET_STATS, &stats);
+ifconfig
+netstat
+netstat -s
+top
+free
 /* 请将输出结果附在邮件中 */
 ```
 
@@ -66,11 +69,11 @@ nic_ioctl(&g_nic, NIC_IOCTL_GET_STATS, &stats);
 | 芯片型号 | 例：某某科技 XYZ-1000 |
 | 网卡控制器 IP | 例：DesignWare GMAC v4.10 |
 | PHY 型号 | 例：RTL8211F |
-| 目标 OS | SylixOS / RTOS / 其他 |
+| 目标 OS | SylixOS / 其他 |
 | 预计用量 | 原型 / 小批量 / 量产 |
 | 期望交付时间 | — |
 
-请将以上信息发送至：**nic-driver@acoinfo.com**
+请将以上信息发送至：**zhaoxuchen@acoinfo.com**
 
 <style>
 .fb-intro {
