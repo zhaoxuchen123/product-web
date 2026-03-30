@@ -20,8 +20,8 @@
             为集团客户提供高性能、高可靠的完整网络能力。
           </p>
           <div class="hero-actions">
-            <a href="/products/" class="btn-primary">查看所有产品 <ArrowRight :size="16" /></a>
-            <a href="/changelog" class="btn-ghost">更新日志</a>
+            <a :href="withBase('/products/')" class="btn-primary">查看所有产品 <ArrowRight :size="16" /></a>
+            <a :href="withBase('/changelog')" class="btn-ghost">更新日志</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><span class="stat-num">2</span><span class="stat-label">核心产品</span></div>
@@ -48,7 +48,7 @@
           <p class="section-desc">从底层硬件驱动到上层应用协议等，提供完整的网络技术栈</p>
         </div>
         <div class="cards">
-          <a :href="p.link" class="card" v-for="p in products" :key="p.title">
+          <a :href="withBase(p.link)" class="card" v-for="p in products" :key="p.title">
             <div class="card-glow" />
             <div class="card-top">
               <div class="card-icon-wrap">
@@ -77,7 +77,7 @@
           <p class="section-desc">各产品最近发布的版本摘要</p>
         </div>
         <div class="updates">
-          <a v-for="u in updates" :key="u.version" :href="u.link" class="update-item">
+          <a v-for="u in updates" :key="u.version" :href="withBase(u.link)" class="update-item">
             <div class="update-left">
               <div class="update-icon-wrap">
                 <component :is="u.icon" :size="20" :stroke-width="1.5" class="update-icon-svg" />
@@ -99,7 +99,7 @@
           </a>
         </div>
         <div class="see-all">
-          <a href="/changelog" class="btn-ghost">查看全部更新日志</a>
+          <a :href="withBase('/changelog')" class="btn-ghost">查看全部更新日志</a>
         </div>
       </div>
     </section>
@@ -141,6 +141,7 @@ import {
   ArrowRight, Cpu, Network, Wrench, Zap, Feather, ShieldCheck, Puzzle,
   Factory, Wifi, Car, Rocket, Terminal
 } from 'lucide-vue-next'
+import { withBase } from 'vitepress'
 import NetworkDiagram from './NetworkDiagram.vue'
 
 const products = [

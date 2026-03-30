@@ -6,8 +6,8 @@
       <h1 class="product-hero__title">{{ title }}</h1>
       <p class="product-hero__subtitle">{{ subtitle }}</p>
       <div class="product-hero__actions">
-        <a v-if="primaryLink" :href="primaryLink" class="product-hero__btn product-hero__btn--primary">{{ primaryText }}</a>
-        <a v-if="secondaryLink" :href="secondaryLink" class="product-hero__btn product-hero__btn--secondary">{{ secondaryText }}</a>
+        <a v-if="primaryLink" :href="withBase(primaryLink)" class="product-hero__btn product-hero__btn--primary">{{ primaryText }}</a>
+        <a v-if="secondaryLink" :href="withBase(secondaryLink)" class="product-hero__btn product-hero__btn--secondary">{{ secondaryText }}</a>
       </div>
       <div class="product-hero__stats">
         <slot name="stats" />
@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+import { withBase } from 'vitepress'
 defineProps<{
   title: string
   subtitle: string

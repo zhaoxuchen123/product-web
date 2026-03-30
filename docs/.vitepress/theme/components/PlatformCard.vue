@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" class="pc-card">
+  <a :href="withBase(href)" class="pc-card">
     <div class="pc-header">
       <div class="pc-chip-icon">
         <Cpu :size="18" stroke-width="1.5" />
@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+import { withBase } from 'vitepress'
 import { Cpu, ArrowRight } from 'lucide-vue-next'
 
 defineProps<{

@@ -1,5 +1,5 @@
 <template>
-  <a :href="link" class="pc">
+  <a :href="withBase(link)" class="pc">
     <!-- 顶部光晕装饰 -->
     <div class="pc__glow" />
 
@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 
 const props = defineProps<{
   title: string

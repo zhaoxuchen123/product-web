@@ -3,7 +3,7 @@
     <div class="pph-bg"><div class="pph-grid" /></div>
     <div class="pph-inner">
       <div class="pph-left">
-        <a href="/products/" class="pph-back"><ArrowLeft :size="14" /> 所有产品</a>
+        <a :href="withBase('/products/')" class="pph-back"><ArrowLeft :size="14" /> 所有产品</a>
         <div class="pph-icon-wrap">
           <component :is="icon" :size="32" :stroke-width="1.5" class="pph-icon" />
         </div>
@@ -15,8 +15,8 @@
           <span v-if="updated" class="pph-updated">更新于 {{ updated }}</span>
         </div>
         <div class="pph-actions">
-          <a :href="changelogLink" class="pph-btn-ghost"><Clock :size="14" /> 更新日志</a>
-          <a :href="startLink" class="pph-btn-primary">快速开始 <ArrowRight :size="14" /></a>
+          <a :href="withBase(changelogLink)" class="pph-btn-ghost"><Clock :size="14" /> 更新日志</a>
+          <a :href="withBase(startLink)" class="pph-btn-primary">快速开始 <ArrowRight :size="14" /></a>
         </div>
       </div>
       <div class="pph-right">
@@ -39,6 +39,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 import { ArrowLeft, ArrowRight, Clock, CheckCircle } from 'lucide-vue-next'
 import type { Component } from 'vue'
 
