@@ -15,8 +15,8 @@
           <span v-if="updated" class="pph-updated">更新于 {{ updated }}</span>
         </div>
         <div class="pph-actions">
-          <a :href="withBase(changelogLink)" class="pph-btn-ghost"><Clock :size="14" /> 更新日志</a>
-          <a :href="withBase(startLink)" class="pph-btn-primary">快速开始 <ArrowRight :size="14" /></a>
+          <a v-if="changelogLink" :href="withBase(changelogLink)" class="pph-btn-ghost"><Clock :size="14" /> 更新日志</a>
+          <a v-if="startLink" :href="withBase(startLink)" class="pph-btn-primary">快速开始 <ArrowRight :size="14" /></a>
         </div>
       </div>
       <div class="pph-right">
@@ -50,8 +50,8 @@ const props = defineProps<{
   tag: string
   version?: string
   updated?: string
-  startLink: string
-  changelogLink: string
+  startLink?: string
+  changelogLink?: string
   stats: { value: string; label: string }[]
   features: string[]
 }>()
