@@ -9,6 +9,8 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['meta', { property: 'og:title', content: '南京翼辉网络部产品中心' }],
+    ['meta', { property: 'og:description', content: '南京翼辉信息网络技术部产品展示' }],
   ],
 
   themeConfig: {
@@ -38,7 +40,7 @@ export default defineConfig({
         },
         {
           text: 'DesignWare GMAC',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: '驱动概述', link: '/products/nic-driver/dw/' },
             { text: '快速开始', link: '/products/nic-driver/dw/getting-started' },
@@ -57,7 +59,7 @@ export default defineConfig({
         },
         {
           text: '沐创系列',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'rnp（N10 万兆）', link: '/products/nic-driver/mucse/rnp' },
             { text: 'rnp500（N500 万兆）', link: '/products/nic-driver/mucse/rnp500' },
@@ -65,7 +67,7 @@ export default defineConfig({
         },
         {
           text: '网讯系列',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'ngbe（WX1860 千兆）', link: '/products/nic-driver/wangxun/ngbe' },
             { text: 'txgbe（WX1820 万兆）', link: '/products/nic-driver/wangxun/txgbe' },
@@ -73,7 +75,7 @@ export default defineConfig({
         },
         {
           text: 'Intel 系列',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'igb（i210 / i350）', link: '/products/nic-driver/intel/igb' },
             { text: 'igc（I225 / I226）', link: '/products/nic-driver/intel/igc' },
@@ -82,7 +84,7 @@ export default defineConfig({
         },
         {
           text: '裕太微系列',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'YT6801（2.5GbE）', link: '/products/nic-driver/yt6801' },
           ],
@@ -127,8 +129,8 @@ export default defineConfig({
     socialLinks: [],
 
     footer: {
-      message: '翼辉信息 · 网络技术部',
-      copyright: `Copyright © ${new Date().getFullYear()}`,
+      message: '翼辉信息 · 网络技术部 | <a href="/products/">产品中心</a> · <a href="/changelog">更新日志</a> · <a href="/products/nic-driver/feedback">问题反馈</a>',
+      copyright: `Copyright © ${new Date().getFullYear()} 南京翼辉信息技术有限公司`,
     },
 
     search: {

@@ -30,7 +30,7 @@
             <div class="stat-div" />
             <div class="stat"><span class="stat-num">4+</span><span class="stat-label">网络工具</span></div>
             <div class="stat-div" />
-            <div class="stat"><span class="stat-num">Armory</span><span class="stat-label">统一分发</span></div>
+            <div class="stat"><span class="stat-num">1</span><span class="stat-label">套包管理器</span></div>
           </div>
         </div>
         <div class="hero-right">
@@ -209,7 +209,7 @@ const features = [
 .hero-inner {
   position: relative; z-index: 1;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
 }
@@ -293,7 +293,7 @@ const features = [
 .section-desc { font-size: 0.92rem; color: var(--vp-c-text-2); max-width: 480px; margin: 0 auto; line-height: 1.7; }
 
 /* ── Product Cards ── */
-.cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; }
 @media(max-width:900px){ .cards { grid-template-columns: 1fr; } }
 .card {
   position: relative; overflow: hidden;
