@@ -7,6 +7,10 @@ export default defineConfig({
   base: '/',
   lastUpdated: true,
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+  ],
+
   themeConfig: {
     logo: '/logo.svg',
     siteTitle: '南京翼辉网络部产品中心',
