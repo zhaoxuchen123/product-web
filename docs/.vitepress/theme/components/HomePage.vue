@@ -40,7 +40,7 @@
     </section>
 
     <!-- ===== PRODUCTS ===== -->
-    <section class="section">
+    <section v-animate class="section">
       <div class="container">
         <div class="section-head">
           <div class="section-tag">产品矩阵</div>
@@ -64,12 +64,26 @@
               <span class="card-link">了解详情 <ArrowRight :size="13" class="card-arrow" /></span>
             </div>
           </a>
+          <!-- 即将推出 占位卡片 -->
+          <div class="card card--coming">
+            <div class="card-top">
+              <div class="card-icon-wrap card-icon-wrap--coming">
+                <Rocket :size="26" :stroke-width="1.5" class="card-icon-svg card-icon--coming" />
+              </div>
+              <span class="card-tag tag-coming">即将推出</span>
+            </div>
+            <h3 class="card-title">网络产品</h3>
+            <p class="card-desc">面向市场的独立网络产品，正在规划中，敬请期待。</p>
+            <div class="card-footer">
+              <span class="card-coming-hint">Coming Soon</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== LATEST UPDATES ===== -->
-    <section class="section section--alt">
+    <section v-animate class="section section--alt">
       <div class="container">
         <div class="section-head">
           <div class="section-tag">动态</div>
@@ -105,7 +119,7 @@
     </section>
 
     <!-- ===== ABOUT ===== -->
-    <section class="section">
+    <section v-animate class="section">
       <div class="container">
         <div class="about">
           <div class="about-text">
@@ -137,12 +151,31 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
 import {
   ArrowRight, Cpu, Network, Wrench, Zap, Feather, ShieldCheck, Puzzle,
   Factory, Wifi, Car, Rocket, Terminal
 } from 'lucide-vue-next'
 import { withBase } from 'vitepress'
 import NetworkDiagram from './NetworkDiagram.vue'
+
+/* ── 滚动入场动画 ── */
+const vAnimate = {
+  mounted(el: HTMLElement) {
+    el.classList.add('anim-hidden')
+    const ob = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        el.classList.add('anim-visible')
+        ob.disconnect()
+      }
+    }, { threshold: 0.12 })
+    ob.observe(el)
+    ;(el as any).__ob = ob
+  },
+  unmounted(el: HTMLElement) {
+    ;(el as any).__ob?.disconnect()
+  },
+}
 
 const products = [
   {
@@ -173,6 +206,18 @@ const features = [
 </script>
 
 <style scoped>
+/* ── 滚动入场动画 ── */
+.anim-hidden {
+  opacity: 0;
+  transform: translateY(32px);
+}
+.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* ── Layout ── */
 .home { font-family: var(--vp-font-family-base); }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
@@ -293,8 +338,9 @@ const features = [
 .section-desc { font-size: 0.92rem; color: var(--vp-c-text-2); max-width: 480px; margin: 0 auto; line-height: 1.7; }
 
 /* ── Product Cards ── */
-.cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 @media(max-width:900px){ .cards { grid-template-columns: 1fr; } }
+@media(min-width:901px) and (max-width:1100px){ .cards { grid-template-columns: repeat(2, 1fr); } }
 .card {
   position: relative; overflow: hidden;
   display: flex; flex-direction: column;
@@ -327,10 +373,39 @@ const features = [
 .card-desc { font-size: 0.875rem; color: var(--vp-c-text-2); line-height: 1.7; flex: 1; margin: 0 0 1.25rem; }
 .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
 .card-ver { font-family: var(--vp-font-family-mono); font-size: 0.75rem; background: var(--vp-c-default-soft); padding: 2px 7px; border-radius: 5px; color: var(--vp-c-text-3); }
-.card-ver-multi { font-size: 0.75rem; background: var(--vp-c-default-soft); padding: 2px 7px; border-radius: 5px; color: var(--vp-c-text-3); }
 .card-link { font-size: 0.82rem; font-weight: 600; color: var(--vp-c-brand-1); display: flex; align-items: center; gap: 3px; }
 .card-arrow { transition: transform .2s; }
 .card:hover .card-arrow { transform: translateX(4px); }
+
+/* ── Coming Soon 卡片 ── */
+.card--coming {
+  border-style: dashed;
+  border-color: rgba(139,92,246,0.3);
+  background: rgba(139,92,246,0.03);
+  cursor: default;
+}
+.card--coming:hover {
+  border-color: rgba(139,92,246,0.5);
+  box-shadow: 0 8px 40px rgba(139,92,246,0.1);
+  transform: translateY(-3px);
+}
+.card-icon-wrap--coming {
+  background: linear-gradient(135deg, rgba(139,92,246,.1), rgba(236,72,153,.1));
+  border-color: rgba(139,92,246,.2);
+}
+.card-icon--coming { color: #8b5cf6; }
+.tag-coming {
+  background: rgba(139,92,246,.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(139,92,246,.2);
+}
+.card-coming-hint {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--vp-c-text-3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
 /* ── Updates ── */
 .updates { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }

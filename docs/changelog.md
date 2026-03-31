@@ -3,7 +3,7 @@ layout: page
 ---
 
 <script setup>
-import { Cpu, Terminal } from 'lucide-vue-next'
+import { Cpu, Terminal, Activity, GitCommit, Package, Calendar } from 'lucide-vue-next'
 
 const entries = [
   { year: 2026, product: '网卡驱动库',  icon: Cpu,     pkg: 'ngbe · WX1860',      version: 'HEAD',      type: 'minor', typeLabel: '功能', date: '2026-03-06', link: '/products/nic-driver/wangxun/ngbe',   items: ['新增单播 / 组播地址过滤功能', '新增 Shell 命令支持读写 PHY 寄存器', '修复 pbuf 链接收时无法释放的问题', '修复不支持软件 VLAN 的问题'] },
@@ -19,6 +19,20 @@ const entries = [
 ]
 
 const years = [...new Set(entries.map(e => e.year))].sort((a,b) => b-a)
+
+// 统计数据
+const totalReleases = entries.length
+const majorCount = entries.filter(e => e.type === 'major').length
+const minorCount = entries.filter(e => e.type === 'minor').length
+const patchCount = entries.filter(e => e.type === 'patch').length
+const latestDate = entries[0]?.date || '-'
+
+const stats = [
+  { icon: GitCommit, label: '总发布数', value: totalReleases },
+  { icon: Activity,  label: '功能更新', value: majorCount + minorCount },
+  { icon: Package,   label: '缺陷修复', value: patchCount },
+  { icon: Calendar,  label: '最近更新', value: latestDate },
+]
 </script>
 
 <div class="cl-page">
@@ -28,10 +42,28 @@ const years = [...new Set(entries.map(e => e.year))].sort((a,b) => b-a)
     <p class="cl-sub">所有产品版本按时间倒序汇总</p>
   </div>
 
+  <!-- 统计摘要 -->
+  <div class="cl-stats">
+    <div class="cl-stat" v-for="s in stats" :key="s.label">
+      <div class="cl-stat-icon">
+        <component :is="s.icon" :size="18" :stroke-width="1.8" />
+      </div>
+      <div class="cl-stat-value">{{ s.value }}</div>
+      <div class="cl-stat-label">{{ s.label }}</div>
+    </div>
+  </div>
+
+  <!-- 筛选图例 -->
+  <div class="cl-legend">
+    <span class="cl-legend-item"><span class="cl-legend-dot dot-major" /> 重构</span>
+    <span class="cl-legend-item"><span class="cl-legend-dot dot-minor" /> 功能 / 发布</span>
+    <span class="cl-legend-item"><span class="cl-legend-dot dot-patch" /> 修复</span>
+  </div>
+
   <div class="cl-timeline" v-for="year in years" :key="year">
     <div class="cl-year-badge">{{ year }}</div>
     <div class="cl-entries">
-      <a class="cl-entry" v-for="e in entries.filter(x=>x.year===year)" :key="e.version+e.product" :href="e.link">
+      <a class="cl-entry" v-for="e in entries.filter(x=>x.year===year)" :key="e.version+e.product+e.date" :href="e.link">
         <div class="cl-entry-dot" :class="'dot-'+e.type" />
         <div class="cl-entry-card">
           <div class="cl-entry-head">
@@ -57,7 +89,7 @@ const years = [...new Set(entries.map(e => e.year))].sort((a,b) => b-a)
 
 <style scoped>
 .cl-page { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
-.cl-header { text-align: center; margin-bottom: 3rem; }
+.cl-header { text-align: center; margin-bottom: 2rem; }
 .cl-eyebrow {
   display: inline-block; font-size: 0.7rem; font-weight: 700;
   letter-spacing: 2px; text-transform: uppercase;
@@ -68,6 +100,68 @@ const years = [...new Set(entries.map(e => e.year))].sort((a,b) => b-a)
 .cl-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 0.5rem; color: var(--vp-c-text-1); }
 .cl-sub { font-size: 0.95rem; color: var(--vp-c-text-3); }
 
+/* ── 统计摘要 ── */
+.cl-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+}
+@media(max-width:600px) { .cl-stats { grid-template-columns: repeat(2, 1fr); } }
+.cl-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.cl-stat-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, rgba(59,130,246,.1), rgba(139,92,246,.1));
+  border: 1px solid rgba(59,130,246,.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 0.25rem;
+}
+.cl-stat-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--vp-c-text-1);
+  letter-spacing: -0.02em;
+}
+.cl-stat-label {
+  font-size: 0.72rem;
+  color: var(--vp-c-text-3);
+  font-weight: 500;
+}
+
+/* ── 图例 ── */
+.cl-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.cl-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--vp-c-text-3);
+  font-weight: 500;
+}
+.cl-legend-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.cl-legend-dot.dot-major { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,.4); }
+.cl-legend-dot.dot-minor { background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,.4); }
+.cl-legend-dot.dot-patch { background: #3b82f6; box-shadow: 0 0 6px rgba(59,130,246,.4); }
+
+/* ── 时间轴 ── */
 .cl-timeline { position: relative; margin-bottom: 2.5rem; }
 .cl-year-badge {
   display: inline-flex; align-items: center;

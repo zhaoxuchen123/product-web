@@ -15,7 +15,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
-    siteTitle: '南京翼辉网络部产品中心',
+    siteTitle: '翼辉网络产品',
 
     nav: [
       { text: '首页', link: '/' },
