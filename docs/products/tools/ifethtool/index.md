@@ -8,7 +8,7 @@ import ChangelogEntry from '../../../.vitepress/theme/components/ChangelogEntry.
     <h1 class="plat-title">ifethtool</h1>
     <p class="plat-mfr">南京翼辉网络部 · SylixOS 网卡配置工具</p>
     <VersionBadge product="tools/ifethtool" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/nic_drv/ifethtool/1.0.0" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">ethtool</span><span class="ps-label">兼容接口</span></div>
@@ -31,7 +31,7 @@ import ChangelogEntry from '../../../.vitepress/theme/components/ChangelogEntry.
 从 Armory 获取 `ifethtool` 包并安装：
 
 ```bash
-armory get ifethtool
+armory get @nic_drv/ifethtool@1.0.0
 ```
 
 ## 快速上手

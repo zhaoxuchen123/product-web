@@ -6,6 +6,12 @@ import ChangelogEntry from '../../../.vitepress/theme/components/ChangelogEntry.
 
 DW 网卡更新记录如下：
 
+<ChangelogEntry version="3.0.20" date="2026-04-07" :type="['minor']">
+
+- **新增** DW 网卡支持 ifethtool 功能
+
+</ChangelogEntry>
+
 <ChangelogEntry version="3.0.19" date="2026-03-23" :type="['minor']">
 
 - **新增** timestamp 驱动固件改用仅支持 PTP 功能的定制内核编译
