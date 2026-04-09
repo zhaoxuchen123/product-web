@@ -133,16 +133,15 @@ export default defineConfig({
           ],
         },
         {
-          text: '工具列表',
+          text: 'sydev（开发命令行）',
           collapsed: false,
           items: [
-            {
-              text: 'sydev（开发命令行）',
-              collapsed: true,
-              items: [
-                { text: '概述', link: '/products/dev-tools/sydev/' },
-              ],
-            },
+            { text: '概述', link: '/products/dev-tools/sydev/' },
+            { text: '快速开始', link: '/products/dev-tools/sydev/getting-started' },
+            { text: '命令参考', link: '/products/dev-tools/sydev/command-reference' },
+            { text: '配置文件', link: '/products/dev-tools/sydev/configuration' },
+            { text: '上传部署', link: '/products/dev-tools/sydev/upload-guide' },
+            { text: 'CI/CD 集成', link: '/products/dev-tools/sydev/ci-cd' },
           ],
         },
       ],

@@ -71,3 +71,11 @@ workspace/
 - Node.js >= 18
 - RealEvo-Stream 工具链（`rl`、`rl-workspace`、`rl-project`）
 - 构建/清理/上传操作需在有效的工作空间根目录下执行
+
+## 文档导航
+
+- [快速开始](./getting-started) — 5 分钟走通完整开发流程
+- [命令参考](./command-reference) — 所有命令的详细参数说明
+- [配置文件](./configuration) — JSON 配置格式与模板系统
+- [上传部署](./upload-guide) — FTP 上传机制与设备管理
+- [CI/CD 集成](./ci-cd) — 自动化流水线集成方案
