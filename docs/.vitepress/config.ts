@@ -24,6 +24,7 @@ export default defineConfig({
         items: [
           { text: '网卡驱动库', link: '/products/nic-driver/' },
           { text: '网络工具', link: '/products/tools/' },
+          { text: '开发工具', link: '/products/dev-tools/' },
         ],
       },
       { text: '更新日志', link: '/changelog' },
@@ -121,6 +122,27 @@ export default defineConfig({
             { text: 'vndbind（虚拟网卡绑定）', link: '/products/tools/vndbind' },
             { text: 'xgro（软件 GRO）', link: '/products/tools/xgro' },
             { text: 'pppd（PPP 服务器）', link: '/products/tools/pppd' },
+          ],
+        },
+      ],
+      '/products/dev-tools/': [
+        {
+          text: '开发工具',
+          items: [
+            { text: '工具列表', link: '/products/dev-tools/' },
+          ],
+        },
+        {
+          text: '工具列表',
+          collapsed: false,
+          items: [
+            {
+              text: 'sydev（开发命令行）',
+              collapsed: true,
+              items: [
+                { text: '概述', link: '/products/dev-tools/sydev/' },
+              ],
+            },
           ],
         },
       ],

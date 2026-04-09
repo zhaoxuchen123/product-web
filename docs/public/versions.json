@@ -68,5 +68,10 @@
     "version": "v1.8.2",
     "status": "stable",
     "updated": "2026-03-28"
+  },
+  "dev-tools/sydev": {
+    "version": "v0.4.16",
+    "status": "stable",
+    "updated": "2026-03-26"
   }
 }

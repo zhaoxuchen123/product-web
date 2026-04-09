@@ -28,6 +28,15 @@ import ProductCard from '../.vitepress/theme/components/ProductCard.vue'
     version="2.0.0"
     updated="2026-03"
   />
+  <ProductCard
+    title="开发工具"
+    desc="sydev 等 SylixOS 开发命令行工具，覆盖工程初始化、编译构建、设备管理与部署上传，支持模板化配置与 CI/CD 集成。"
+    link="/products/dev-tools/"
+    icon="💻"
+    tag="活跃开发"
+    version="0.4.16"
+    updated="2026-03"
+  />
 </ProductGrid>
 
 ## 即将推出
