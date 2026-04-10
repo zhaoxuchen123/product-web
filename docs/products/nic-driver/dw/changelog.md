@@ -6,6 +6,12 @@ import ChangelogEntry from '../../../.vitepress/theme/components/ChangelogEntry.
 
 DW 网卡更新记录如下：
 
+<ChangelogEntry version="3.0.21-beta" date="2026-04-09" :type="['minor']">
+
+- **新增** DW 网卡支持低功耗模式
+
+</ChangelogEntry>
+
 <ChangelogEntry version="3.0.20" date="2026-04-07" :type="['minor']">
 
 - **新增** DW 网卡支持 ifethtool 功能
