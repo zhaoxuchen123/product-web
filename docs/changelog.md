@@ -6,6 +6,7 @@ layout: page
 import { Cpu, Terminal, Activity, GitCommit, Package, Calendar } from 'lucide-vue-next'
 
 const entries = [
+  { year: 2026, product: '网络工具',    icon: Terminal, pkg: 'ifethtool',          version: '1.0.1',     type: 'minor', typeLabel: '功能', date: '2026-04-17', link: '/products/tools/ifethtool/',          items: ['新增 `-m/-M`，支持查询和设置 MAC 地址', '新增 `-t/-T`、`-p/-P`、`-u/-U`', '支持命令总数由 17 个扩展到 25 个'] },
   { year: 2026, product: '网卡驱动库',  icon: Cpu,     pkg: 'ngbe · WX1860',      version: 'HEAD',      type: 'minor', typeLabel: '功能', date: '2026-03-06', link: '/products/nic-driver/wangxun/ngbe',   items: ['新增单播 / 组播地址过滤功能', '新增 Shell 命令支持读写 PHY 寄存器', '修复 pbuf 链接收时无法释放的问题', '修复不支持软件 VLAN 的问题'] },
   { year: 2026, product: '网络工具',    icon: Terminal, pkg: 'xgro',               version: '2.0.0',     type: 'major', typeLabel: '重构', date: '2026-01-19', link: '/products/tools/xgro',                items: ['重构为 2.0.0，新增 Cache 对齐优化', '改进 Jenkins 类哈希算法，减少流表碰撞', '无锁快慢路径优化，降低自旋锁竞争'] },
   { year: 2025, product: '网络工具',    icon: Terminal, pkg: 'pppd',               version: '1.1.0',     type: 'minor', typeLabel: '发布', date: '2025-12-11', link: '/products/tools/pppd',                items: ['初始版本发布，支持 PPPoS 串口连接', '支持 PAP/CHAP 认证、自动重连'] },

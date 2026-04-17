@@ -123,6 +123,66 @@ ch.combined_count = 4;
 ifethtool_ioctl_call(sock, ifname, &ch);
 ```
 
+## 查询/设置 MAC 地址
+
+对应命令：`ifethtool -m/-M IFNAME`
+
+```c
+struct ethtool_macaddr emac;
+memset(&emac, 0, sizeof(emac));
+emac.cmd = ETHTOOL_GMACADDR;
+ifethtool_ioctl_call(sock, ifname, &emac);
+
+emac.cmd = ETHTOOL_SMACADDR;
+memcpy(emac.addr, mac, 6);
+ifethtool_ioctl_call(sock, ifname, &emac);
+```
+
+## 查询/设置 MTU
+
+对应命令：`ifethtool -t/-T IFNAME`
+
+```c
+struct ethtool_value eval;
+memset(&eval, 0, sizeof(eval));
+eval.cmd = ETHTOOL_GMTU;
+ifethtool_ioctl_call(sock, ifname, &eval);
+
+eval.cmd = ETHTOOL_SMTU;
+eval.data = 1500;
+ifethtool_ioctl_call(sock, ifname, &eval);
+```
+
+## 查询/设置混杂模式
+
+对应命令：`ifethtool -p/-P IFNAME`
+
+```c
+struct ethtool_value eval;
+memset(&eval, 0, sizeof(eval));
+eval.cmd = ETHTOOL_GPROMISC;
+ifethtool_ioctl_call(sock, ifname, &eval);
+
+eval.cmd = ETHTOOL_SPROMISC;
+eval.data = 1;
+ifethtool_ioctl_call(sock, ifname, &eval);
+```
+
+## 查询/设置轻量挂起
+
+对应命令：`ifethtool -u/-U IFNAME`
+
+```c
+struct ethtool_value eval;
+memset(&eval, 0, sizeof(eval));
+eval.cmd = ETHTOOL_GLIGHTSUSPEND;
+ifethtool_ioctl_call(sock, ifname, &eval);
+
+eval.cmd = ETHTOOL_SLIGHTSUSPEND;
+eval.data = 1;
+ifethtool_ioctl_call(sock, ifname, &eval);
+```
+
 ## 查询驱动统计
 
 对应命令：`ifethtool -S IFNAME`

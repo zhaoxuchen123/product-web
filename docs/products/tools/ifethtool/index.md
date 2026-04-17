@@ -8,11 +8,11 @@ import ChangelogEntry from '../../../.vitepress/theme/components/ChangelogEntry.
     <h1 class="plat-title">ifethtool</h1>
     <p class="plat-mfr">南京翼辉网络部 · SylixOS 网卡配置工具</p>
     <VersionBadge product="tools/ifethtool" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/nic_drv/ifethtool/1.0.0" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/nic_drv/ifethtool/1.0.1" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">ethtool</span><span class="ps-label">兼容接口</span></div>
-    <div class="plat-stat"><span class="ps-val">17</span><span class="ps-label">已实现命令</span></div>
+    <div class="plat-stat"><span class="ps-val">25</span><span class="ps-label">已实现命令</span></div>
     <div class="plat-stat"><span class="ps-val">CLI</span><span class="ps-label">工具类型</span></div>
     <div class="plat-stat"><span class="ps-val">SylixOS</span><span class="ps-label">目标平台</span></div>
   </div>
@@ -31,7 +31,7 @@ import ChangelogEntry from '../../../.vitepress/theme/components/ChangelogEntry.
 从 Armory 获取 `ifethtool` 包并安装：
 
 ```bash
-armory get @nic_drv/ifethtool@1.0.0
+armory install @nic_drv/ifethtool@1.0.1-beta
 ```
 
 ## 快速上手
@@ -42,6 +42,18 @@ ifethtool en0
 
 # 查询驱动信息
 ifethtool -i en0
+
+# 查询 MAC / MTU / 混杂模式 / 轻量挂起
+ifethtool -m en0
+ifethtool -t en0
+ifethtool -p en0
+ifethtool -u en0
+
+# 设置 MAC / MTU / 混杂模式 / 轻量挂起
+ifethtool -M en0 02:11:22:33:44:55
+ifethtool -T en0 1500
+ifethtool -P en0 on
+ifethtool -U en0 on
 
 # 查询所有 feature/offload 开关
 ifethtool -k en0
@@ -76,12 +88,26 @@ ifethtool -S en0
 | `-g` / `-G` | 查询/设置 ring 深度 |
 | `-c` / `-C` | 查询/设置中断合并参数 |
 | `-l` / `-L` | 查询/设置 channel 数 |
+| `-m` / `-M` | 查询/设置 MAC 地址 |
+| `-t` / `-T` | 查询/设置 MTU |
+| `-p` / `-P` | 查询/设置混杂模式 |
+| `-u` / `-U` | 查询/设置轻量挂起状态 |
 | `-S` | 查询驱动统计 |
 | `-r` | 重新触发自动协商 |
 | `-s` | 设置链路参数 |
 | `-h` / `-V` | 帮助 / 版本 |
 
 ## 最新更新
+
+<ChangelogEntry version="1.0.1" date="2026-04-17" type="minor">
+
+- 新增 `-m/-M`，支持查询和设置 MAC 地址
+- 新增 `-t/-T`，支持查询和设置 MTU
+- 新增 `-p/-P`，支持查询和设置混杂模式
+- 新增 `-u/-U`，支持查询和设置轻量挂起状态
+- 支持命令总数由 17 个扩展到 25 个
+
+</ChangelogEntry>
 
 <ChangelogEntry version="1.0.0" date="2025-10-27" type="minor">
 
