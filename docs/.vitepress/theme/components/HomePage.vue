@@ -24,7 +24,7 @@
             <a :href="withBase('/changelog')" class="btn-ghost">更新日志</a>
           </div>
           <div class="hero-stats">
-            <div class="stat"><span class="stat-num">2</span><span class="stat-label">核心产品</span></div>
+            <div class="stat"><span class="stat-num">3</span><span class="stat-label">核心产品</span></div>
             <div class="stat-div" />
             <div class="stat"><span class="stat-num">20+</span><span class="stat-label">支持芯片</span></div>
             <div class="stat-div" />
@@ -133,6 +133,7 @@
             <div class="about-pills">
               <span class="pill"><Cpu :size="13" /> 网卡驱动</span>
               <span class="pill"><Terminal :size="13" /> 网络工具</span>
+              <span class="pill"><Code :size="13" /> 开发工具</span>
               <span class="pill"><Factory :size="13" /> 基础软件</span>
               <span class="pill"><Rocket :size="13" /> 独立产品</span>
             </div>
@@ -154,7 +155,7 @@
 import { onMounted, onUnmounted } from 'vue'
 import {
   ArrowRight, Cpu, Network, Wrench, Zap, Feather, ShieldCheck, Puzzle,
-  Factory, Wifi, Car, Rocket, Terminal
+  Factory, Wifi, Car, Rocket, Terminal, Code
 } from 'lucide-vue-next'
 import { withBase } from 'vitepress'
 import NetworkDiagram from './NetworkDiagram.vue'
@@ -187,6 +188,11 @@ const products = [
     icon: Terminal, title: '网络工具', tag: '活跃开发', tagClass: 'tag-active',
     desc: 'ifethtool、vndbind、xgro、pppd 等 SylixOS 网络配置与调试工具，兼容 Linux 主流工具使用习惯。',
     version: '1.0.0', link: '/products/tools/'
+  },
+  {
+    icon: Code, title: '开发工具', tag: '活跃开发', tagClass: 'tag-active',
+    desc: 'sydev 等 SylixOS 开发命令行工具，覆盖工程初始化、编译构建、设备管理与部署上传。',
+    version: '0.4.16', link: '/products/dev-tools/'
   },
 ]
 
