@@ -21,7 +21,7 @@ import ProductCard from '../.vitepress/theme/components/ProductCard.vue'
   />
   <ProductCard
     title="网络工具"
-    desc="ifethtool、vndbind、xgro、pppd 等 SylixOS 网络配置与调试工具，兼容 Linux 主流工具使用习惯，方便开发者快速上手。"
+    desc="ifethtool、vndbind、xgro、netfirewall、pppd 等 SylixOS 网络配置与调试工具，兼容 Linux 主流工具使用习惯，方便开发者快速上手。"
     link="/products/tools/"
     icon="🛠️"
     tag="活跃开发"
