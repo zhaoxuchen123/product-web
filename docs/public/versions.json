@@ -45,9 +45,9 @@
     "updated": "2026-03-28"
   },
   "tools/ifethtool": {
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "status": "stable",
-    "updated": "2026-03-28"
+    "updated": "2026-04-17"
   },
   "tools/vndbind": {
     "version": "v1.0.0",
@@ -58,6 +58,11 @@
     "version": "v2.0.0",
     "status": "stable",
     "updated": "2026-03-28"
+  },
+  "tools/netfirewall": {
+    "version": "v1.0.0",
+    "status": "stable",
+    "updated": "2025-10-28"
   },
   "tools/pppd": {
     "version": "v1.1.0",

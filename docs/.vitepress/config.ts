@@ -121,6 +121,7 @@ export default defineConfig({
             },
             { text: 'vndbind（虚拟网卡绑定）', link: '/products/tools/vndbind' },
             { text: 'xgro（软件 GRO）', link: '/products/tools/xgro' },
+            { text: 'netfirewall（网络防火墙）', link: '/products/tools/netfirewall' },
             { text: 'pppd（PPP 服务器）', link: '/products/tools/pppd' },
           ],
         },

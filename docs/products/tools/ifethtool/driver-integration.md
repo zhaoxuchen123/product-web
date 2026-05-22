@@ -72,6 +72,13 @@ NETDEV_FEATURES_SET(&ndev->net_dev, mynic_get_active_features(ndev));
 | `-g` / `-G` | `get_ringparam` / `set_ringparam` |
 | `-c` / `-C` | `get_coalesce` / `set_coalesce` |
 | `-l` / `-L` | `get_channels` / `set_channels` |
+| `-m` | `net_device.hwaddr` 有效 |
+| `-M` | `drv->ioctl(..., SIOCSIFHWADDR, ...)` |
+| `-t` | `net_device.mtu` 有效 |
+| `-T` | `drv->ioctl(..., SIOCSIFMTU, ...)` |
+| `-p` | 当前 `IFF_PROMISC` 状态可读 |
+| `-P` | `drv->rxmode(netdev, flags)` |
+| `-u` / `-U` | `get_light_suspend` / `set_light_suspend` |
 | `-S` | `get_sset_count` + `get_strings` + `get_ethtool_stats` |
 | `-r` | `nway_reset` |
 | `-s` | `get_link_ksettings` + `set_link_ksettings` |
@@ -85,6 +92,8 @@ NETDEV_FEATURES_SET(&ndev->net_dev, mynic_get_active_features(ndev));
 - `NETDEV_HW_FEATURES` 已按真实硬件能力初始化
 - `NETDEV_FEATURES` 已按当前启用状态初始化
 - `SIOCETHTOOL_SYNC_FEAT` 已接入（用于 feature 同步到硬件）
+- `drv->ioctl()` 已支持 `SIOCSIFHWADDR` 和 `SIOCSIFMTU`
+- `drv->rxmode()` 已实现混杂模式切换
 - 统计接口的数量、名称和值顺序一致
 - 不支持的命令统一返回 `-EOPNOTSUPP`
 
@@ -105,3 +114,11 @@ NETDEV_FEATURES_SET(&ndev->net_dev, mynic_get_active_features(ndev));
 **`-G` / `-L` / `-C` 设置后系统不稳定**
 
 检查是否需要通过 `netJobAdd()` 异步执行，设置后是否同步刷新了软件缓存和硬件状态。
+
+**`-M` / `-T` 返回不支持**
+
+检查驱动 `ioctl` 是否支持 `SIOCSIFHWADDR` 和 `SIOCSIFMTU`。
+
+**`-P` 设置后不生效**
+
+检查驱动是否实现了 `rxmode()`，以及软件 flags 是否与硬件过滤状态同步。

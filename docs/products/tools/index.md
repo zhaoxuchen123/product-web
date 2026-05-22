@@ -15,7 +15,7 @@ import PlatformCard from '../../.vitepress/theme/components/PlatformCard.vue'
   tag="活跃开发"
   startLink="./ifethtool/"
   :stats="[
-    { value: '4', label: '工具' },
+    { value: '5', label: '工具' },
     { value: 'ethtool', label: '兼容接口' },
     { value: 'SylixOS', label: '目标平台' },
   ]"
@@ -76,6 +76,21 @@ import PlatformCard from '../../.vitepress/theme/components/PlatformCard.vue'
     { value: 'TCP/UDP', label: '协议' },
   ]"
   :tags="['GRO', '性能优化', '接收卸载']"
+/>
+
+<PlatformCard
+  href="./netfirewall"
+  chip="netfirewall"
+  manufacturer="南京翼辉网络部"
+  pkg="netfirewall"
+  status="stable"
+  statusLabel="稳定"
+  :specs="[
+    { value: 'v1.0.0', label: '版本' },
+    { value: '/dev/netfw', label: '接口' },
+    { value: 'Framework', label: '类型' },
+  ]"
+  :tags="['防火墙框架', '流量过滤', '驱动控制']"
 />
 
 <PlatformCard

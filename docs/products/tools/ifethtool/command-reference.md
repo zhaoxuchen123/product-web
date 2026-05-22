@@ -20,6 +20,14 @@
 | `-C`, `--coalesce` | `-C` | 设置中断合并参数 |
 | `-l`, `--show-channels` | `-l` | 查询 channel 参数 |
 | `-L`, `--set-channels` | `-L` | 设置 channel 参数 |
+| `-m`, `--show-mac` | 自定义扩展 | 查询 MAC 地址 |
+| `-M`, `--set-mac` | 自定义扩展 | 设置 MAC 地址 |
+| `-t`, `--show-mtu` | 自定义扩展 | 查询 MTU |
+| `-T`, `--set-mtu` | 自定义扩展 | 设置 MTU |
+| `-p`, `--show-promisc` | 自定义扩展 | 查询混杂模式 |
+| `-P`, `--set-promisc` | 自定义扩展 | 设置混杂模式 |
+| `-u`, `--show-suspend` | 自定义扩展 | 查询轻量挂起状态 |
+| `-U`, `--set-suspend` | 自定义扩展 | 设置轻量挂起状态 |
 | `-S`, `--statistics` | `-S` | 查询驱动统计 |
 | `-r`, `--negotiate` | `-r` | 重新触发自动协商 |
 | `-s`, `--change` | `-s` | 设置链路参数 |
@@ -118,6 +126,42 @@ ifethtool -L IFNAME [combined N]
 ```
 
 对应 ioctl：`ETHTOOL_GCHANNELS` / `ETHTOOL_SCHANNELS` → `ethtool_ops->get_channels` / `set_channels`
+
+## MAC 地址 `-m` / `-M`
+
+```bash
+ifethtool -m IFNAME
+ifethtool -M IFNAME XX:XX:XX:XX:XX:XX
+```
+
+对应 ioctl：`ETHTOOL_GMACADDR` / `ETHTOOL_SMACADDR` → `ifethtool_get_mac_address` / `ifethtool_set_mac_address`
+
+## MTU `-t` / `-T`
+
+```bash
+ifethtool -t IFNAME
+ifethtool -T IFNAME N
+```
+
+对应 ioctl：`ETHTOOL_GMTU` / `ETHTOOL_SMTU` → `ifethtool_get_mtu` / `ifethtool_set_mtu`
+
+## 混杂模式 `-p` / `-P`
+
+```bash
+ifethtool -p IFNAME
+ifethtool -P IFNAME on|off
+```
+
+对应 ioctl：`ETHTOOL_GPROMISC` / `ETHTOOL_SPROMISC` → `ifethtool_get_promisc` / `ifethtool_set_promisc`
+
+## 轻量挂起 `-u` / `-U`
+
+```bash
+ifethtool -u IFNAME
+ifethtool -U IFNAME on|off
+```
+
+对应 ioctl：`ETHTOOL_GLIGHTSUSPEND` / `ETHTOOL_SLIGHTSUSPEND` → `ethtool_ops->get_light_suspend` / `set_light_suspend`
 
 ## 驱动统计 `-S`
 
