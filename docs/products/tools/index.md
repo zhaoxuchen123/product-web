@@ -86,11 +86,11 @@ import PlatformCard from '../../.vitepress/theme/components/PlatformCard.vue'
   status="stable"
   statusLabel="稳定"
   :specs="[
-    { value: 'v1.0.0', label: '版本' },
+    { value: 'v1.1.0', label: '版本' },
     { value: '/dev/netfw', label: '接口' },
-    { value: 'Framework', label: '类型' },
+    { value: 'flowctl', label: '流控' },
   ]"
-  :tags="['防火墙框架', '流量过滤', '驱动控制']"
+  :tags="['防火墙框架', '流量限速', '风暴防御']"
 />
 
 <PlatformCard
