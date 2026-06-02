@@ -15,7 +15,7 @@ import PlatformCard from '../../.vitepress/theme/components/PlatformCard.vue'
   tag="活跃开发"
   startLink="./ifethtool/"
   :stats="[
-    { value: '5', label: '工具' },
+    { value: '6', label: '工具' },
     { value: 'ethtool', label: '兼容接口' },
     { value: 'SylixOS', label: '目标平台' },
   ]"
@@ -91,6 +91,21 @@ import PlatformCard from '../../.vitepress/theme/components/PlatformCard.vue'
     { value: 'flowctl', label: '流控' },
   ]"
   :tags="['防火墙框架', '流量限速', '风暴防御']"
+/>
+
+<PlatformCard
+  href="./linuxptp"
+  chip="linuxptp"
+  manufacturer="南京翼辉网络部"
+  pkg="linuxptp"
+  status="stable"
+  statusLabel="稳定"
+  :specs="[
+    { value: 'PTP/gPTP', label: '协议' },
+    { value: '≤250ns', label: '精度' },
+    { value: 'CLI', label: '类型' },
+  ]"
+  :tags="['时间同步', 'IEEE 1588', '802.1AS']"
 />
 
 <PlatformCard

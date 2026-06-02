@@ -8,7 +8,7 @@ import ChangelogEntry from '../../.vitepress/theme/components/ChangelogEntry.vue
     <h1 class="plat-title">pppd</h1>
     <p class="plat-mfr">南京翼辉网络部 · SylixOS PPP 拨号服务器</p>
     <VersionBadge product="tools/pppd" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/sylixos-middleware/pppd/1.1.0" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">PPPoS</span><span class="ps-label">协议</span></div>

@@ -1,11 +1,11 @@
-# 所有产品
+﻿# 所有产品
 
 <script setup>
 import ProductGrid from '../.vitepress/theme/components/ProductGrid.vue'
 import ProductCard from '../.vitepress/theme/components/ProductCard.vue'
 </script>
 
-我们围绕 SylixOS 平台提供完整的网络基础软件产品体系，涵盖底层网卡驱动到上层网络配置工具。所有产品均通过 **Armory 包管理器**统一分发，支持按需安装与独立升级。
+我们围绕 SylixOS 平台提供完整的网络基础软件产品体系，涵盖底层网卡驱动、网络协议、网络配置工具和开发工具。所有产品均通过 **Armory 包管理器**统一分发，支持按需安装与独立升级。
 
 ## 核心产品
 
@@ -18,6 +18,15 @@ import ProductCard from '../.vitepress/theme/components/ProductCard.vue'
     tag="活跃开发"
     version="2.4.1"
     updated="2025-12"
+  />
+  <ProductCard
+    title="网络协议"
+    desc="面向 SylixOS 网络业务场景提供协议模块与协议适配能力，覆盖时间同步、链路管理、网络服务与行业协议扩展。"
+    link="/products/protocols/"
+    icon="🌐"
+    tag="活跃开发"
+    version="0.1.0"
+    updated="2026-06"
   />
   <ProductCard
     title="网络工具"

@@ -8,7 +8,7 @@ import ChangelogEntry from '../../.vitepress/theme/components/ChangelogEntry.vue
     <h1 class="plat-title">netfirewall</h1>
     <p class="plat-mfr">南京翼辉网络部 · SylixOS 网络防火墙与流量控制工具</p>
     <VersionBadge product="tools/netfirewall" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/nic_drv/netfw/1.1.1" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">netfw.ko</span><span class="ps-label">内核模块</span></div>

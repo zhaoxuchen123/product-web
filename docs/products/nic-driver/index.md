@@ -33,7 +33,7 @@ import PlatformCard from '../../.vitepress/theme/components/PlatformCard.vue'
 
 ## DesignWare 网卡（DW 网卡）
 
-DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP，我们针对以下平台进行了适配与优化：
+DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP，当前已覆盖 `aarch64`、`arm`、`loongarch`、`MIPS`、`RISC-V` 等架构，并针对以下代表平台进行了文档化适配与优化：
 
 <div class="platform-grid">
 
@@ -99,6 +99,31 @@ DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP
 
 </div>
 
+[查看完整 DW 支持架构与平台 →](./dw/platform-support)
+
+## 飞腾网卡（PHYTIUM）
+
+飞腾国产 PCIe 以太网适配器，面向飞腾服务器、工作站、网络设备及工业控制等场景：
+
+<div class="platform-grid">
+
+<PlatformCard
+  href="./phytium"
+  chip="PHYTIUM"
+  manufacturer="飞腾信息技术有限公司"
+  pkg="libphytnic"
+  status="beta"
+  statusLabel="Beta"
+  :specs="[
+    { value: '1G/10G', label: '速率' },
+    { value: 'PCIe', label: '总线' },
+    { value: 'FTD3000', label: '平台' },
+  ]"
+  :tags="['国产芯片', 'arm64', '静态库']"
+/>
+
+</div>
+
 ## Intel PCIe 系列
 
 独立 PCIe 网卡，适用于 x86 及具备 PCIe 总线的嵌入式平台：
@@ -128,7 +153,7 @@ DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP
   status="stable"
   statusLabel="稳定"
   :specs="[
-    { value: '2.5G', label: '速率' },
+    { value: '1G', label: '速率' },
     { value: 'PCIe', label: 'Gen3 x1' },
     { value: 'TSN', label: '时敏网络' },
   ]"
@@ -164,11 +189,11 @@ DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP
   status="stable"
   statusLabel="稳定"
   :specs="[
-    { value: '2.5G', label: '速率' },
+    { value: '1G', label: '速率' },
     { value: 'PCIe', label: '总线' },
     { value: '国产', label: '自主可控' },
   ]"
-  :tags="['2.5GbE', '国产芯片']"
+  :tags="['千兆', '国产芯片']"
 />
 
 </div>
@@ -213,38 +238,38 @@ DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP
 
 ## 沐创网卡（MUCSE）
 
-沐创自研 PCIe 万兆网卡，Vendor ID `0x8848`：
+沐创自研 PCIe 千兆网卡，当前支持 N400 与 N500 系列：
 
 <div class="platform-grid">
 
 <PlatformCard
   href="./mucse/rnp"
-  chip="N10"
+  chip="N400"
   manufacturer="沐创科技"
   pkg="libdrv_rnp"
   status="stable"
   statusLabel="稳定"
   :specs="[
-    { value: '10 GbE', label: '速率' },
-    { value: 'SFP+', label: '接口' },
-    { value: 'SR-IOV', label: '虚拟化' },
+    { value: '1 GbE', label: '速率' },
+    { value: '×2 / ×4', label: '端口数' },
+    { value: 'SFP / SGMII', label: '接口' },
   ]"
-  :tags="['万兆', '国产芯片', 'SR-IOV']"
+  :tags="['千兆', '国产芯片', 'PCIe']"
 />
 
 <PlatformCard
   href="./mucse/rnp500"
   chip="N500"
   manufacturer="沐创科技"
-  pkg="libdrv_rnp_n500"
+  pkg="libdrv_rnp"
   status="stable"
   statusLabel="稳定"
   :specs="[
-    { value: '10 GbE', label: '速率' },
-    { value: 'SFP+', label: '接口' },
-    { value: 'RSS', label: '多队列' },
+    { value: '1 GbE', label: '速率' },
+    { value: '×2 / ×4', label: '端口数' },
+    { value: 'RJ45', label: '接口' },
   ]"
-  :tags="['万兆', '国产芯片']"
+  :tags="['千兆', '国产芯片', 'PCIe']"
 />
 
 </div>
@@ -287,3 +312,4 @@ DesignWare GMAC（DW MAC）是广泛集成于各类 SoC 的以太网控制器 IP
   margin: 1rem 0 2rem;
 }
 </style>
+

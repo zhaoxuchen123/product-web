@@ -8,7 +8,7 @@ import ChangelogEntry from '../../.vitepress/theme/components/ChangelogEntry.vue
     <h1 class="plat-title">xgro</h1>
     <p class="plat-mfr">南京翼辉网络部 · SylixOS 软件 GRO 模块</p>
     <VersionBadge product="tools/xgro" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/sylixos-middleware/xgro/2.0.0" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">GRO</span><span class="ps-label">接收卸载</span></div>

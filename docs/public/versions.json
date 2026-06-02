@@ -7,12 +7,12 @@
   "nic-driver/rnp": {
     "version": "v0.2.5",
     "status": "stable",
-    "updated": "2026-03-28"
+    "updated": "2026-06-02"
   },
   "nic-driver/rnp500": {
     "version": "v0.2.5",
     "status": "stable",
-    "updated": "2026-03-28"
+    "updated": "2026-06-02"
   },
   "nic-driver/ngbe": {
     "version": "v1.2.6.5",
@@ -44,6 +44,11 @@
     "status": "stable",
     "updated": "2026-03-28"
   },
+  "nic-driver/phytium": {
+    "version": "v1.0.0-beta",
+    "status": "beta",
+    "updated": "2026-06-01"
+  },
   "tools/ifethtool": {
     "version": "v1.0.1",
     "status": "stable",
@@ -64,10 +69,30 @@
     "status": "stable",
     "updated": "2026-05-22"
   },
+  "tools/linuxptp": {
+    "version": "套件",
+    "status": "stable",
+    "updated": "2026-06-01"
+  },
   "tools/pppd": {
     "version": "v1.1.0",
     "status": "stable",
     "updated": "2026-03-28"
+  },
+  "protocols": {
+    "version": "v0.1.0",
+    "status": "dev",
+    "updated": "2026-06-02"
+  },
+  "protocols/mqtt": {
+    "version": "MQTT 3.1.1 / 5.0",
+    "status": "stable",
+    "updated": "2026-06-02"
+  },
+  "protocols/igh": {
+    "version": "v1.6.3",
+    "status": "stable",
+    "updated": "2026-06-02"
   },
   "middleware": {
     "version": "v1.8.2",
@@ -80,3 +105,4 @@
     "updated": "2026-03-26"
   }
 }
+

@@ -8,6 +8,7 @@ import ProductPageHero from './components/ProductPageHero.vue'
 import PlatformCard from './components/PlatformCard.vue'
 import BoardTabs from './components/BoardTabs.vue'
 import VersionBadge from './components/VersionBadge.vue'
+import ArmoryFetch from './components/ArmoryFetch.vue'
 
 export default {
   extends: DefaultTheme,
@@ -20,5 +21,6 @@ export default {
     app.component('PlatformCard', PlatformCard)
     app.component('BoardTabs', BoardTabs)
     app.component('VersionBadge', VersionBadge)
+    app.component('ArmoryFetch', ArmoryFetch)
   },
 }

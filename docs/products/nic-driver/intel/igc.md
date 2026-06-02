@@ -18,9 +18,6 @@ const boards = [
       'I225-V B0/B1 存在 PCIe Gen3 稳定性问题，建议使用 B3 及以上版本',
       '驱动自动检测版本，B0/B1 降至 PCIe Gen2 运行',
     ],
-    snippet:
-`/* PCIe 设备自动枚举，驱动加载后按顺序创建网口 */
-netcard_intel_attach();`,
   },
   {
     name: 'I225-LM',
@@ -36,8 +33,6 @@ netcard_intel_attach();`,
       'LM 为企业/工控版本，支持 AMT 主动管理技术',
       'TSN（时敏网络）特性：支持 IEEE 802.1Qbv、802.1Qbu',
     ],
-    snippet:
-`netcard_intel_attach();`,
   },
   {
     name: 'I226-V',
@@ -53,8 +48,6 @@ netcard_intel_attach();`,
       'I226 修复了 I225 的 PCIe Gen3 稳定性问题，新设计推荐优先选用',
       '与 I225 共用驱动，设备 ID（8086:125C）自动识别',
     ],
-    snippet:
-`netcard_intel_attach();`,
   },
   {
     name: 'I226-LM',
@@ -69,8 +62,6 @@ netcard_intel_attach();`,
     notes: [
       'I226-LM 为 I226 企业版，支持 AMT 和完整 TSN 特性',
     ],
-    snippet:
-`netcard_intel_attach();`,
   },
 ]
 </script>
@@ -80,7 +71,7 @@ netcard_intel_attach();`,
     <h1 class="plat-title">igc 系列</h1>
     <p class="plat-mfr">Intel · PCIe 2.5GbE · I225 / I226</p>
     <VersionBadge product="nic-driver/igc" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/nic_drv/intel_nic_drv/1.0.1?tab=versions" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">2.5 GbE</span><span class="ps-label">网口速率</span></div>
@@ -89,6 +80,8 @@ netcard_intel_attach();`,
     <div class="plat-stat"><span class="ps-val">PTP</span><span class="ps-label">硬件时间戳</span></div>
   </div>
 </div>
+
+<ArmoryFetch pkg="nic-intel-igc" command="armory get @nic_drv/intel_nic_drv@1.0.1" detailHref="http://10.7.1.31/acohub/armory/package/nic_drv/intel_nic_drv/1.0.1?tab=file" />
 
 ## 安装与加载
 

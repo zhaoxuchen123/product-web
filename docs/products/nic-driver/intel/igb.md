@@ -19,10 +19,6 @@ const boards = [
       '支持 IEEE 1588 PTP 硬件时间戳',
       '支持 Wake-on-LAN、MSI-X 中断',
     ],
-    snippet:
-`/* PCIe 设备由驱动自动枚举，无需手动配置基地址 */
-/* 驱动加载后按 PCI BDF 顺序创建 eth0, eth1... */
-netcard_intel_attach();`,
   },
   {
     name: 'i211',
@@ -39,9 +35,6 @@ netcard_intel_attach();`,
       'TX/RX 队列数为 4（i210 为 8），适合成本敏感场景',
       '不支持 SR-IOV',
     ],
-    snippet:
-`/* 与 i210 共用驱动，设备 ID 自动识别 */
-netcard_intel_attach();`,
   },
   {
     name: 'i350',
@@ -58,9 +51,6 @@ netcard_intel_attach();`,
       '支持 SR-IOV 虚拟化，最多 8 个 VF/port',
       '支持 IEEE 1588 PTP 和 Energy Efficient Ethernet (EEE)',
     ],
-    snippet:
-`/* i350-T4 四口，fn 0~3 各对应一个网口 */
-netcard_intel_attach();`,
   },
 ]
 </script>
@@ -70,7 +60,7 @@ netcard_intel_attach();`,
     <h1 class="plat-title">igb 系列</h1>
     <p class="plat-mfr">Intel · PCIe 千兆 · i210 / i211 / i350</p>
     <VersionBadge product="nic-driver/igb" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/nic_drv/intel_nic_drv/1.0.1?tab=versions" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">1 GbE</span><span class="ps-label">网口速率</span></div>
@@ -79,6 +69,9 @@ netcard_intel_attach();`,
     <div class="plat-stat"><span class="ps-val">SR-IOV</span><span class="ps-label">虚拟化</span></div>
   </div>
 </div>
+
+<ArmoryFetch pkg="nic-intel-igb" command="armory get @nic_drv/intel_nic_drv@1.0.1" 
+detailHref="armory get @nic_drv/intel_nic_drv@1.0.1" />
 
 ## 安装与加载
 

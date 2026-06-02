@@ -39,8 +39,6 @@ txgbe_init_module();`,
       '支持 XAUI、SGMII、KR/KX/KX4 多种背板接口',
       '支持 SR-IOV 虚拟化',
     ],
-    snippet:
-`txgbe_init_module();`,
   },
 ]
 </script>
@@ -51,7 +49,7 @@ txgbe_init_module();`,
     <h1 class="plat-title">txgbe</h1>
     <p class="plat-mfr">网讯科技（Wangxun）· PCIe 万兆</p>
     <VersionBadge product="nic-driver/txgbe" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/nic_drv/txgbe_nic_drv/3.6.9-beta" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">10 GbE</span><span class="ps-label">网口速率</span></div>
@@ -60,6 +58,8 @@ txgbe_init_module();`,
     <div class="plat-stat"><span class="ps-val">国产</span><span class="ps-label">自主可控</span></div>
   </div>
 </div>
+
+<ArmoryFetch pkg="libtxgbe" command="armory get @nic_drv/txgbe_nic_drv@3.6.9-beta" detailHref="http://10.7.1.31/acohub/armory/package/nic_drv/txgbe_nic_drv/3.6.9-beta" />
 
 ## 安装与加载
 

@@ -20,9 +20,6 @@ const boards = [
       '支持 1G / 100M / 10M 自适应',
       '支持 MSI-X 中断',
     ],
-    snippet:
-`/* PCIe 设备自动枚举，驱动加载后创建 eth0, eth1... */
-ngbe_init_module();`,
   },
   {
     name: 'WX1860A2',
@@ -84,7 +81,7 @@ ngbe_init_module();`,
     <h1 class="plat-title">ngbe</h1>
     <p class="plat-mfr">网讯科技（Wangxun）· PCIe 千兆</p>
     <VersionBadge product="nic-driver/ngbe" />
-    <a class="armory-link" href="http://10.7.1.31/acohub/armory/" target="_blank">Armory 获取</a>
+    <a class="armory-link" href="http://10.7.1.31/acohub/armory/package/nic_drv/ngbe_nic_drv/1.2.6" target="_blank">Armory 获取</a>
   </div>
   <div class="plat-hero-stats">
     <div class="plat-stat"><span class="ps-val">1 GbE</span><span class="ps-label">网口速率</span></div>
@@ -93,6 +90,8 @@ ngbe_init_module();`,
     <div class="plat-stat"><span class="ps-val">多口</span><span class="ps-label">最多四口</span></div>
   </div>
 </div>
+
+<ArmoryFetch pkg="libngbe" command="armory get @nic_drv/ngbe_nic_drv@1.2.6" detailHref="http://10.7.1.31/acohub/armory/package/nic_drv/ngbe_nic_drv/1.2.6" />
 
 ## 安装与加载
 
@@ -165,7 +164,7 @@ Vendor ID 均为 `0x8088`。
 
 ## 最新更新
 
-<ChangelogEntry version="1.2.6.5" date="2025-11-21" type="patch">
+<ChangelogEntry version="1.2.6" date="2025-11-21" type="patch">
 
 - 修复 pbuf 链在 ifup/ifdown 时无法释放的问题
 
