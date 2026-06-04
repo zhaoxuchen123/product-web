@@ -23,8 +23,9 @@ export default defineConfig({
         text: '产品',
         items: [
           { text: '网卡驱动库', link: '/products/nic-driver/' },
-          { text: '网络工具', link: '/products/tools/' },
+          { text: '网络产品', link: '/products/network-products/' },
           { text: '网络协议', link: '/products/protocols/' },
+          { text: '网络工具', link: '/products/tools/' },
           { text: '开发工具', link: '/products/dev-tools/' },
         ],
       },
@@ -144,6 +145,35 @@ export default defineConfig({
             { text: 'netfirewall（网络防火墙）', link: '/products/tools/netfirewall' },
             { text: 'linuxptp（时间同步）', link: '/products/tools/linuxptp' },
             { text: 'pppd（PPP 服务器）', link: '/products/tools/pppd' },
+          ],
+        },
+      ],
+      '/products/network-products/': [
+        {
+          text: '网络产品',
+          items: [
+            { text: '产品列表', link: '/products/network-products/' },
+          ],
+        },
+        {
+          text: 'FRRouting（动态路由）',
+          collapsed: false,
+          items: [
+            { text: '概述', link: '/products/network-products/frr/' },
+            { text: '快速开始', link: '/products/network-products/frr/quick-start' },
+            { text: '软件架构', link: '/products/network-products/frr/architecture' },
+            { text: '配置与使用', link: '/products/network-products/frr/configuration' },
+          ],
+        },
+        {
+          text: 'ring-suit（环网冗余）',
+          collapsed: false,
+          items: [
+            { text: '概述', link: '/products/network-products/ring-suit/' },
+            { text: '快速开始', link: '/products/network-products/ring-suit/quick-start' },
+            { text: '配置指南', link: '/products/network-products/ring-suit/configuration' },
+            { text: '选型指南', link: '/products/network-products/ring-suit/selection' },
+            { text: '收敛测试', link: '/products/network-products/ring-suit/convergence' },
           ],
         },
       ],

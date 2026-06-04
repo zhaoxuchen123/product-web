@@ -74,6 +74,16 @@
     "status": "stable",
     "updated": "2026-06-01"
   },
+  "network-products/frr": {
+    "version": "v1.0.0",
+    "status": "stable",
+    "updated": "2026-06-03"
+  },
+  "network-products/ring-suit": {
+    "version": "套件",
+    "status": "stable",
+    "updated": "2026-06-03"
+  },
   "tools/pppd": {
     "version": "v1.1.0",
     "status": "stable",

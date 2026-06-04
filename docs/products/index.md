@@ -1,11 +1,11 @@
-﻿# 所有产品
+# 所有产品
 
 <script setup>
 import ProductGrid from '../.vitepress/theme/components/ProductGrid.vue'
 import ProductCard from '../.vitepress/theme/components/ProductCard.vue'
 </script>
 
-我们围绕 SylixOS 平台提供完整的网络基础软件产品体系，涵盖底层网卡驱动、网络协议、网络配置工具和开发工具。所有产品均通过 **Armory 包管理器**统一分发，支持按需安装与独立升级。
+我们围绕 SylixOS 平台提供完整的网络基础软件产品体系，涵盖底层网卡驱动、网络产品、网络协议、网络配置工具和开发工具。所有产品均通过 **Armory 包管理器**统一分发，支持按需安装与独立升级。
 
 ## 核心产品
 
@@ -20,8 +20,17 @@ import ProductCard from '../.vitepress/theme/components/ProductCard.vue'
     updated="2025-12"
   />
   <ProductCard
+    title="网络产品"
+    desc="面向工业现场与行业场景提供独立网络产品与解决方案，覆盖环网冗余、动态路由、链路可靠性和网络收敛测试等能力。"
+    link="/products/network-products/"
+    icon="📦"
+    tag="活跃开发"
+    version="2 products"
+    updated="2026-06"
+  />
+  <ProductCard
     title="网络协议"
-    desc="面向 SylixOS 网络业务场景提供协议模块与协议适配能力，覆盖时间同步、链路管理、网络服务与行业协议扩展。"
+    desc="面向 SylixOS 网络业务场景提供协议模块与协议适配能力，覆盖 EtherCAT、MQTT、时间同步、链路管理与行业协议扩展。"
     link="/products/protocols/"
     icon="🌐"
     tag="活跃开发"
@@ -30,7 +39,7 @@ import ProductCard from '../.vitepress/theme/components/ProductCard.vue'
   />
   <ProductCard
     title="网络工具"
-    desc="ifethtool、vndbind、xgro、netfirewall、pppd 等 SylixOS 网络配置与调试工具，兼容 Linux 主流工具使用习惯，方便开发者快速上手。"
+    desc="ifethtool、vndbind、xgro、netfirewall、linuxptp、pppd 等 SylixOS 网络配置与调试工具，兼容 Linux 主流工具使用习惯，方便开发者快速上手。"
     link="/products/tools/"
     icon="🛠️"
     tag="活跃开发"
@@ -48,6 +57,6 @@ import ProductCard from '../.vitepress/theme/components/ProductCard.vue'
   />
 </ProductGrid>
 
-## 即将推出
+## 持续更新
 
-我们正在规划面向市场的独立网络产品与解决方案，敬请期待。如有需求或建议，欢迎通过 [问题反馈](/products/nic-driver/feedback) 与我们沟通。
+我们会持续补充新的网络产品、协议模块和工具能力。如有需求或建议，欢迎通过 [问题反馈](/products/nic-driver/feedback) 与我们沟通。
